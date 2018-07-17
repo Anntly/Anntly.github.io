@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://anntly.github.io/"/>
-  <updated>2018-07-15T13:30:32.777Z</updated>
+  <updated>2018-07-17T01:22:52.576Z</updated>
   <id>https://anntly.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--Mysql的登录与退出</title>
+    <link href="https://anntly.github.io/2018/07/17/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-Mysql%E7%9A%84%E7%99%BB%E5%BD%95%E4%B8%8E%E9%80%80%E5%87%BA/"/>
+    <id>https://anntly.github.io/2018/07/17/基于Mysql的数据库复习笔记-Mysql的登录与退出/</id>
+    <published>2018-07-17T01:16:27.000Z</published>
+    <updated>2018-07-17T01:22:52.576Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>net start mysql（安装时使用的服务名称）</p><h3 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h3><p>net stop mysql</p><h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><ol><li>找到mysql.exe（通过CMD控制台，如果在安装的时候指定了mysql.exe所在的路径为环境变量，就可以直接访问；否则需要进入到mysql.exe的路径中）</li><li>输入对应的服务器地址:-h:host    -h[IP地址/域名]</li><li>输入服务器中Mysql监听的端口号:-P:port            -P:3306（<font color="#F08080">大写P</font>）</li><li>输入用户名：-u:username  -u:root</li><li>输入密码:-p:password  -p:root(<font color="#F08080">小写p</font>)</li></ol><h3 id="连接认证基本语法"><a href="#连接认证基本语法" class="headerlink" title="连接认证基本语法"></a>连接认证基本语法</h3><p>mysql.exe/mysql -h主机地址  -P端口  -u用户名    -p密码（密码可以先不写，之后会要求密文输入）</p><h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><p>建议方式：使用SQL指令</p><ul><li>Exit;  //exit带分号</li><li>\q;    //quit缩写</li><li>Quit;</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;启动服务&quot;&gt;&lt;a href=&quot;#启动服务&quot; class=&quot;headerlink&quot; title=&quot;启动服务&quot;&gt;&lt;/a&gt;启动服务&lt;/h3&gt;&lt;p&gt;net start mysql（安装时使用的服务名称）&lt;/p&gt;
+&lt;h3 id=&quot;停止服务&quot;&gt;&lt;a href=&quot;#停止服务&quot; 
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
