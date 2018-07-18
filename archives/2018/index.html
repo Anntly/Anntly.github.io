@@ -339,125 +339,278 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-子查询/" >
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >
             
-                <span>基于Mysql的数据库复习笔记--子查询</span>
+                <span>基于Mysql的数据库复习笔记--触发器</span>
         </a>
         <div class="abstract-content">
-            子查询
-sub query:当一个查询是另外一个查询的条件时，称之为子查询
-
-子查询分类
-按功能分
-标量子查询：子查询返回的结果是一个数据（一行一列）
-列子查询：返回的接轨是一列（一列多行）
-行子查询：返回的结果是一行（一行多列）
-表子查询：返回的结果是多行多列（多行多列）
-Exists子查询：返回的结果是1或者0（类似布尔操作）
-
-
-按位置分
-Where子查询：子查询出现的位置在where条件中
-From子查询：子查询出现的位置在from数据源中（做数据源）
-
-
-
-标量子查询
-子查询得到的结果是一个数据（一行一列）
-基本语法：select * from 数据源 where 条件判断 =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--连接查询</span>
-        </a>
-        <div class="abstract-content">
-            连接查询
-将多张表连到一起进行查询（会导致记录数行和字段数列发生改变）
-意义：在关系型数据库设计过程中，实体（表）与实体之间存在很多联系。在关系型数据库表的设计过程中，遵循这关系来设计：一对一，一对多，多对多，通常在实际的操作中需要利用这层关系保证数据的完整性。
-分类
-交叉连接
-将两张表的数据与另外一张表彼此交叉
-原理：从第一张表依次取出每一条记录；取出每一条记录后，与另外一张表的全部记录挨个匹配；没有任何匹配条件，所有的结果都会进行保留；
-记录数 = 第一张表记录数*第二张表记录数=第一张表字段数+第二张表字段数；
-基本语法：表1 cross join 表2；
-应用：交叉连接产生的结果...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--联合查询</span>
-        </a>
-        <div class="abstract-content">
-            
+            触发器
 基本概念
-合并多个相似的结果集。等同于将一个表追加到另一个表，从而实现将两个表的查询组合到一起，使用谓词为UNION或UNION ALL。
-联合查询：将多个查询的结果合并在一起（纵向合并）：字段数不变，多个查询的记录数合并。
+触发器是一种特殊的存储过程，它不同于之前的存储过程。触发器主要是通过事件进行触发而被执行的，而存储过程可以通过存储过程名字而被直接调用
 
 
-应用场景
-将同一张表中不同的结果（需要多条查询语句实现），合并到一起暂时数据
-男生身高升序排序，女生降序
+作用
+可以在写入数据表之前，强制检验或者转换数据(保证安全)
+触发器发生错误的时候，异动的结果会被撤销(如果触发器执行错误，前面用户已经执行成功的操作也会被撤销:类似事务安全)
+部分数据库管理系统可以针对数据定义语言(DDL)使用触发器，称为DDL触发器
+可依照特定的情况，替换异动的指令(INSTRAD OF)（mysql不支持）
 
 
-最常见：在数据量大的情况下，会对表进行分表操作，需要对每张表进行部分数据统计，使用联合查询来将数据存放在一起显示
+优点
 
 
+触发器可通过数据库中的相关表实现级联操作(如果某张表的数据改变,可以利用触发器来实现其他...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >
+            
+                <span>基于Mysql的数据库复习笔记--存储过程</span>
+        </a>
+        <div class="abstract-content">
+            存储过程
+存储过程简称为过程
+存储过程(Stored procedure)是在大型数据库系统中，一组为了完成特定功能的SQL语句集，存储在数据库中，经过第一次编译后再次调用不需要再次编译(效率比较高),用户通过指定存储过程的名字并给出参数(如果该存储过程带有参数)来执行它。存储过程是数据库的一个重要对象。(针对SQL编程而言)
+与函数的区别
+相同点:
+
+
+存储过程与函数的目的都是为了可以重复执行操作数据库的sql语句的集合
+存储过程函数都是一次编译，后续执行
+
+
+不同点
+
+
+标识符不同.函数的标识符为Function，过程为Procedure
+函数中有返回值，且必须返回，而过程没有返回值...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >
+            
+                <span>基于Mysql的数据库复习笔记--变量作用域</span>
+        </a>
+        <div class="abstract-content">
+            变量作用域
+变量能够使用的区域范围
+局部作用域
+使用declare关键字声明(在结构体内:函数/存储过程/触发器)而且只能在结构体内部使用
+
+
+decalre关键字声明的变量没有任何符号修饰，就是普通字符串，如果在外部访问该变量，系统会自动认为是字段
+
+
+会话作用域
+用户定义的，使用@符号定义的变量,使用set关键字
+会话作用域:当前用户当次连接有效，只要在本连接中，任何地方都可以使用(可以再结构内部,也可以跨库)
+
+
+全局作用域
+所有的客户端所有的连接都有效:需要使用全局符号来定义
+set global 变量名 = 值;
+set @@global.变量名 = 值;
+通常在SQL编程的时...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >
+            
+                <span>基于Mysql的数据库复习笔记--流程结构案例</span>
+        </a>
+        <div class="abstract-content">
+            流程结构案例
+需求:从1开始，直到用户传入的对应的值为止，自动求和，凡是5的倍数都不要
+设计
+创建函数
+形参:确定要累加到什么位置
+需要定义一个变量来保存对应的结果
+set @变量名;
+使用局部变量来操作，此结果是在函数内部使用
+Declare 变量名 类型 [= 默认值]
+
+
+内部需要一个循环来实现迭代累加
+循环内部需要进行条件控制:5的倍数
+函数必须有返回值
+
+
+调用函数:select 函数名(实参);
+具体代码
+
+
+-- 自动求和函数
+
+-- 修改语句结束符
+delimiter $$
+-- 创建函数
+create function my_sum(end_value int) ret...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >
+            
+                <span>基于Mysql的数据库复习笔记--函数</span>
+        </a>
+        <div class="abstract-content">
+            函数
+在mysq中，函数分为两类:系统函数(内置函数)和自定义函数
+不管是内置函数还是用户自定义函数，都是使用 select 函数名(参数列表);
+
+内置函数字符串函数
+char length():判断字符串的字符数
+Length():判断字符串的字节数(与字符集)
+Concat():连接字符串
+Instr():判断字符在目标字符串是否存在，存在返回其位置，不存在返回0
+Lcase():全部小写
+Left():从左侧开始截取字符串到指定位置
+Ltrim():消除左边对应的空格
+Mid():从中间指定位置开始截取，如果不指定截取长度，直接到最后
+
+时间函数
+Now():返回当前时间,日期时...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >
+            
+                <span>基于Mysql的数据库复习笔记--流程结构</span>
+        </a>
+        <div class="abstract-content">
+            流程结构
+流程结构:代码的执行顺序
+
+if分支
 基本语法
-Select 语句 Union[union 选项] Select 语句;
-Union选项：与select选项基本一样
-Dis...
+用在select查询中，当做一种条件爱你进行判断
+基本语法:if(条件,为真结果,为假结果)
+select *,if(stu_age &gt; 20,’符合’,’不符合’) as judge from my_student[ where stu_age &gt; 20];
+
+
+用在复杂的语句块中(函数/存储过程/触发器)
+基本语法:if 条件表达式 then满足条件要执行的语句;end if;
+
+
+
+
+符合语法
+代码的判断存在两面性，两面都有对应的代码执行
+基本语法:if 条件表达式 then满足条件执行的语句;else  不满足...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
             </div>
             <!-- tags  -->
             
@@ -478,36 +631,29 @@ Dis...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >
             
-                <span>基于Mysql的数据库复习笔记--查询中的运算符</span>
+                <span>基于Mysql的数据库复习笔记--变量</span>
         </a>
         <div class="abstract-content">
-            算术运算符
-+,-,*,/,%
-通常不在条件中使用，而是用于结果运算
-mysql中出发的运算结果使用浮点数表示
-除法中除数如果为0，系统会给NULL
-NULL进行任何算术运算结果都为NULL
-
-比较运算符
->,&gt;=,&lt;,&lt;=,=&lt;&gt;（不等于）
-用来在条件中进行限定结果
-=：在mysql中没有对应的==比较符号，就是使用=来进行相等判断
-&lt;=&gt;：相等比较
-特殊应用：在字段结果中进行比较运算
-在条件判断的时候，还有对应的比较运算符:计算区间
-between 条件1 and 条件2  （是闭区间查找）
-between中条件1必须小于条件2
+            变量
+Mysql本质是一种编程语言，需要很多变量来保存数据。Mysql中很多的属性控制都是通过mysql中固有的变量实现的
+系统变量
+系统内部定义的变量，系统变量针对所有用户(Mysql客户端)有效
+查看系统所有变量:show variables [like ‘pattern’];
+Mysql允许用户使用select查询变量的数据值(系统变量):select @@变量名;
+修改系统变量:分为两种修改方式
+局部修改(会话级别):只针对当前自己客户端当次连接有效
+基本语法:set 变量名 = 新值;
 
 
-
-逻辑运...
+全局修改:针对所有客户端，”所有时刻”都有效
+基本语法:set global 变量名 =...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
             </div>
             <!-- tags  -->
             
@@ -528,28 +674,30 @@ between中条件1必须小于条件2
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >
             
-                <span>基于Mysql的数据库复习笔记--高级数据操作</span>
+                <span>基于Mysql的数据库复习笔记--事务安全</span>
         </a>
         <div class="abstract-content">
-            新增数据
-多数据插入
-只要写一次insert指令，但是可以直接插入多条记录
-基本语法:insert  into 表名 [(字段列表)] values (值列表),(值列表)…;
-insert into my_table values(‘张三’),(‘李四’),(‘王五’)…;
+            事务安全
+事务概念
+事务基本原理:mysql允许将事务统一进行管理(存储引擎Innodb)，将用户所作的操作保存起来，不直接放到数据表（更新），等用户确认结果之后在进行操作
+
+自动事务
+
+autocommit:当客户端发送一条SQL指令(写操作:增删改)给服务器的时候，服务器在执行之后，不用等待用户反馈结果，会自动将结果同步到数据表。
+系统做了额外的步骤来帮助用户操作，系统是通过变量来控制的。
+Show variables like ‘autocommit%’;
+关闭自动事务:关闭之后系统就不再帮助用户提交结果了
+Set autocommit = Off;
 
 
-主键冲突
-在有的表中，使用的是业务主键（字段含有业务意义），但是往往在进行数据插入的时候，又不确定数据表中是否已经存在对应的主键。
-解决方案
-主键冲突更新:类似插入数据语法，如果插入数据过程主键冲突，采用更新方法
-insert into 表名 [(字段列表)] values (值列表) on duplicate...
+一旦自动事务关闭:需要用户...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
             </div>
             <!-- tags  -->
             
@@ -570,27 +718,31 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >
             
-                <span>基于Mysql的数据库复习笔记--表关系</span>
+                <span>基于Mysql的数据库复习笔记--视图基本操作</span>
         </a>
         <div class="abstract-content">
-            一对一
-一张表中的一条记录与另外一张表中最多有一条明确的关系；通常，此设计方案保证两张表中使用同样的主键即可
-
-一对多
-通常也叫作多对一，通常在“多”关系的表中去维护一个字段，这个字段是“一”关系的主键
-
-多对多
-一张表中的一条记录在另外一张表中可以匹配到多条记录，反之亦然
-通过第三张表解决
+            视图基本操作
+创建视图
+视图的本质是SQL指令(select语句)
+基本语法:create view 视图名字 as select 指令; //可以是单表数据，也可以是连接查询，联合查询或者子查询
+查看视图结构:视图本身是虚拟表，所以关于表的一些操作都适用于视图
 
 
+使用视图
+视图是一张虚拟表:可以直接把视图当做”表”操作，但是视图本身没有数据，是临时执行select语句得到对应的结果。视图主要用户查询操作
+基本语法：select 字段列表 from 视图名称 [子句];
+
+
+修改视图
+修改视图:本质是修改视图对应的查询语句
+基本语法:alter view 视图名字 as 新select...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
             </div>
             <!-- tags  -->
             
@@ -611,188 +763,27 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >
             
-                <span>基于Mysql的数据库复习笔记--列属性</span>
+                <span>基于Mysql的数据库复习笔记--外键</span>
         </a>
         <div class="abstract-content">
-            列属性
-列属性又称为字段属性,mysql中一共有6个属性:null,默认值，列描述，主键，唯一键和自动增长
-Null属性
-设计表的时候尽量不让数据为空
-Mysql的纪录长度为65535个字节，如果表中有字段允许为null，那么系统就会设计保留一个字节来存储NULL，最终有效存储长度为65535个字节
+            外键
+概念:如果公共关键字在一个关系中是主关键字，那么这个公共关键字被称为另外一个关系的外键.由此可见，外键表示了两个关系之间的相关联系。以另一个关系的外键作主关键字的表被称为主表，具有此外键的表被称为主表的从表。外键又称为外关键字。
+外键:foreign key，一张表（A）中有一个字段，保存的值指向另外一张表（B）的主键。B为主表，A为从表
+外键的操作
+增加外键
+在创建表的时候增加外键（类似主键）
+基本语法:在在字段后增加一条语句:[constraint ‘外键名’] foreign key (外键字段) references 主表(主键);
 
 
-默认值
-Default：默认值，没有指定默认为NULL
-
-
-列描述
-comment：注释说明
-基本语法:comment’字段描述’；
-
-
-主键
-primary key，在一张表中，有且只有一个字段，里面的值具有唯一性
-创建方式
-1.字节在需要做主键的字段后，添加primary key属性...
+在创建表后增加外键
+Alter ta...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >
-            
-                <span>基于Mysql的数据库复习笔记--列类型</span>
-        </a>
-        <div class="abstract-content">
-            整型
-Tinyint
-迷你整型:系统采用一个字节来保存一个字节的整型:1个字节=8位，最大能表示的数值0-255
-
-
-Smallint
-小整型:系统采用两个字节来保存的整型:0-65535
-
-
-Mediumint
-中整型:3个字节
-
-
-Int
-整型:4个字节
-
-
-BigInt
-
-大整型:8个字节
-
-
-tinyint插入255报错原因
-
-Mysql默认为整型加入负数。实际表示的区间为-128-127
-
-
-无符号标识设定
-无符号:表示存储的数据在当前字段中，没有负数（只有正数，区间为0-255）
-基本语法:在类型之后加上 unsigned
-
-
-显示长度
-指数据（整型）在数据显示的时候，可以显...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--数据基础操作</span>
-        </a>
-        <div class="abstract-content">
-            插入操作
-本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面
-基本语法：Insert into 表名[(字段列表)] values （对应的值）
-insert into teacher (name,age) values(‘jack’,28);
-
-
-基本语法：向表中所有字段插入数据
-Insert into 表名 values(对应表结构)  //值列表必须与字段列表一致
-insert into teacher values(‘Lee’,30);
-
-
-
-查询操作
-查询表中全部数据: select * from 表名;
-查询表中部分字段:select 字段列表 from 表名;(字...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--表操作</span>
-        </a>
-        <div class="abstract-content">
-            普通创建表
-基本语法： create table 表名字 （字段名 字段类型 [字段属性]，字段名 字段类型 [字段属性]…）[表选项];
-create table clazz(name varchar(32) …);
-表必须放在对应的数据库下，有以下两种方式：
-在数据表名字前面加上数据库名字，用“.”连接即可，数据库.数据表。
-在创建是维护局表之前，先进入到某个数据库，use 数据库名字
-
-
-
-
-表选项:与数据库选项类似
-Engine:存储引擎，mysql提供的具体存储数据的方式，默认InnoDB，5.5之前为Myisam（两者的区别之后再提）
-Charset：字符集，只对当前自己表有...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
             </div>
             <!-- tags  -->
             
@@ -810,7 +801,7 @@ Charset：字符集，只对当前自己表有...
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">NEXT &#62;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/2/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1070,9 +1061,219 @@ Charset：字符集，只对当前自己表有...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 25
         </div>
         <!-- search  -->
         
@@ -1088,6 +1289,66 @@ Charset：字符集，只对当前自己表有...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >基于Mysql的数据库复习笔记--视图基本操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >基于Mysql的数据库复习笔记--事务安全</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >基于Mysql的数据库复习笔记--流程结构案例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >基于Mysql的数据库复习笔记--存储过程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >基于Mysql的数据库复习笔记--变量作用域</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >基于Mysql的数据库复习笔记--连接查询</a>
         </li>
     
@@ -1098,7 +1359,7 @@ Charset：字符集，只对当前自己表有...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
         </li>
     
     
@@ -1108,12 +1369,7 @@ Charset：字符集，只对当前自己表有...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
         </li>
     
     
@@ -1123,12 +1379,22 @@ Charset：字符集，只对当前自己表有...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >基于Mysql的数据库复习笔记--表操作</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >基于Mysql的数据库复习笔记--数据基础操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >基于Mysql的数据库复习笔记--数据库的基本操作</a>
         </li>
     
     
@@ -1156,12 +1422,7 @@ Charset：字符集，只对当前自己表有...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >基于Mysql的数据库复习笔记--数据库的基本操作</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >基于Mysql的数据库复习笔记--数据基础操作</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >基于Mysql的数据库复习笔记--表操作</a>
         </li>
     
     
