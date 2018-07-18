@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://anntly.github.io/"/>
-  <updated>2018-07-17T01:22:52.576Z</updated>
+  <updated>2018-07-18T13:14:54.410Z</updated>
   <id>https://anntly.github.io/</id>
   
   <author>
@@ -15,6 +15,306 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--子查询</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%AD%90%E6%9F%A5%E8%AF%A2/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-子查询/</id>
+    <published>2018-07-18T13:12:53.000Z</published>
+    <updated>2018-07-18T13:14:54.410Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><ul><li>sub query:当一个查询是另外一个查询的条件时，称之为子查询</li></ul><h3 id="子查询分类"><a href="#子查询分类" class="headerlink" title="子查询分类"></a>子查询分类</h3><ul><li>按功能分<ul><li>标量子查询：子查询返回的结果是一个数据（一行一列）</li><li>列子查询：返回的接轨是一列（一列多行）</li><li>行子查询：返回的结果是一行（一行多列）</li><li>表子查询：返回的结果是多行多列（多行多列）</li><li>Exists子查询：返回的结果是1或者0（类似布尔操作）</li></ul></li><li>按位置分<ul><li>Where子查询：子查询出现的位置在where条件中</li><li>From子查询：子查询出现的位置在from数据源中（做数据源）</li></ul></li></ul><h3 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h3><ul><li>子查询得到的结果是一个数据（一行一列）</li><li>基本语法：<font color="#F08080">select * from 数据源 where 条件判断 =/&lt;&gt;(select 字段名 数据源 where 条件判断); //子查询得到的结果只有一个值</font></li></ul><h3 id="列子查询"><a href="#列子查询" class="headerlink" title="列子查询"></a>列子查询</h3><ul><li>子查询得到的结果是一列数据（一列多行）</li><li>基本语法：<font color="#F08080">主查询 where 条件 in （列子查询）</font></li></ul><h3 id="行子查询"><a href="#行子查询" class="headerlink" title="行子查询"></a>行子查询</h3><ul><li>子查询返回的是一行多列</li><li>行元素：字段元素是指一个字段对应的值，行元素对应的就是多个字段：多个字段合起来作为一个元素参与运算，把这种情况称之为行元素。</li><li>基本语法：<font color="#F08080">主查询 where 条件[(构造一个行元素)] = (行子查询);</font></li><li>例子:查找班级年龄最大且身高最高的学生</li><li>select * from my_student where (stu_age,stu_height) = (select max(stu_age),max(stu_height) from my_student);</li></ul><h3 id="表子查询"><a href="#表子查询" class="headerlink" title="表子查询"></a>表子查询</h3><ul><li>子查询返回的多行多列</li><li>基本语法：<font color="#F08080">Select 字段表 from (子查询)[where] [group by] [having] [limit];</font></li><li>例子：获取班上身高最高的学生（一个）</li><li>select <em> from (select </em> from my_student order by stu_height desc) ==as temp== group by class_id;</li></ul><h3 id="Exists子查询"><a href="#Exists子查询" class="headerlink" title="Exists子查询"></a>Exists子查询</h3><ul><li>查询返回的结果只有0或1,1代表成立，0代表不成立</li><li>基本语法：<font color="#F08080">where exists(查询语句);</font> //exists就是根据查询得到的结果进行判断:如果结果存在，返回1，否则0</li><li>where 1 永远为真</li></ul><h3 id="特定关键字"><a href="#特定关键字" class="headerlink" title="特定关键字"></a>特定关键字</h3><ul><li>In<ul><li>主查询 where 条件 in (列子查询);</li></ul></li><li>Any<ul><li>任意一个: = any(列子查询):条件在查询结果中有任意一个匹配即可</li><li>&lt;&gt;any(列子查询):条件在查询结果中不等于任意一个</li></ul></li><li>some<ul><li>与any完全一样:在国外，some与any正面含义一致，但是否定就大不相同，not any 与 not some</li></ul></li><li>All<ul><li>=all(列子查询):等于里面所有</li><li>&lt;&gt;all(列子查询):不等于所有</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;子查询&quot;&gt;&lt;a href=&quot;#子查询&quot; class=&quot;headerlink&quot; title=&quot;子查询&quot;&gt;&lt;/a&gt;子查询&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;sub query:当一个查询是另外一个查询的条件时，称之为子查询&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;子查询分类&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--连接查询</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-连接查询/</id>
+    <published>2018-07-18T13:05:34.000Z</published>
+    <updated>2018-07-18T13:07:36.808Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><ul><li>将多张表连到一起进行查询（会导致记录数行和字段数列发生改变）</li><li>意义：在关系型数据库设计过程中，实体（表）与实体之间存在很多联系。在关系型数据库表的设计过程中，遵循这关系来设计：一对一，一对多，多对多，通常在实际的操作中需要利用这层关系保证数据的完整性。</li><li>分类<ul><li>交叉连接<ul><li>将两张表的数据与另外一张表彼此交叉</li><li>原理：从第一张表依次取出每一条记录；取出每一条记录后，与另外一张表的全部记录挨个匹配；没有任何匹配条件，所有的结果都会进行保留；</li><li>记录数 = 第一张表记录数*第二张表记录数=第一张表字段数+第二张表字段数；</li><li>基本语法：<font color="#F08080">表1 cross join 表2；</font></li><li>应用：交叉连接产生的结果是笛卡尔积，没有实际应用。</li><li>本质：from 表1，表2；</li></ul></li><li>内连接<ul><li>inner join：从一张表中取出所有的记录，去另外一张表中匹配：利用匹配条件匹配，匹配成功则保留，失败就放弃</li><li>原理：从第一张那个表中取出一条记录，然后去另外一张表中进行匹配；利用匹配条件进行匹配；匹配到就保留，继续匹配；匹配失败就向下继续，如果权标匹配失败，结束</li><li>基本语法：<font color="#F08080">表1 [inner] join 表2 on 匹配条件；</font></li><li>如果内连接没有条件，结果就是交叉匹配的结果</li><li>因为表的设计通常容易产生同名字段，尤其是id，为了避免重名出现错误，通常使用<font color="#F08080">表名.字段名</font>来确保唯一性</li><li>通常，如果条件中使用到的表名过长，可以使用别名</li><li>内连接匹配的时候，必须保证匹配到才保存</li><li>内连接因为可以不强制使用匹配条件，因此可以在数据匹配之后，使用where条件来限制，效果与on一样（建议使用on）</li><li>应用：通常是在对数据有精确要求的地方使用：必须保证两张表中都能进行数据匹配</li></ul></li><li>外链接<ul><li>outer join：按照某一张表作为主表（表中所有记录在最后都会保留），根据条件去连接另外一张表，从而得到目标数据</li><li>左外连接（left join）<ul><li>左表是主表<ul><li>基本语法：<font color="#F08080">主表 left join 从表 on</font> 连接条件;</li><li>左连接对应的主表数据在左边</li></ul></li></ul></li><li>右外连接（right join）<ul><li>右表是主表</li><li>基本语法：<font color="#F08080">从表 right join 主表 on</font> 连接条件;</li><li>右连接对应的主表数据在右边</li></ul></li><li>原理：<ol><li>确定连接主表：左连接左边为主表，右连接右表尾主表</li><li>拿主表的每一条记录，去匹配另一张表（从表）的每一条记录</li><li>如果匹配条件：保留；不满足即不保留</li><li>如果主表记录在从表中一条都没有匹配成功，那么也要保留该记录；从表对应的字段值都为NULL</li></ol></li><li>特点<ol><li>外链接中主表数据记录一定会保存：连接之后不会出现记录数少于主表</li><li>左连接和右连接可以互相转换，但是数据对应的位置（表顺序）会发生改变</li></ol></li><li>应用<ul><li>常用的一种数据获取方式</li></ul></li></ul></li><li>自然连接</li></ul></li><li>Using关键字<ul><li>在连接查询时代替on关键字</li><li>原理<ul><li>在连接查询时，使用on的地方用using代替</li><li>使用using的前提是对应两张表的字段时同名</li><li>如果是用using关键字，同名字段最终结果中只会保留一个</li></ul></li><li>语法<ul><li><font color="#F08080">表1 [inner，left，right] join 表2 using(同名字段表);//连接字段</font></li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;连接查询&quot;&gt;&lt;a href=&quot;#连接查询&quot; class=&quot;headerlink&quot; title=&quot;连接查询&quot;&gt;&lt;/a&gt;连接查询&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;将多张表连到一起进行查询（会导致记录数行和字段数列发生改变）&lt;/li&gt;
+&lt;li&gt;意义：在关系型数据库设计过程中，
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--联合查询</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-联合查询/</id>
+    <published>2018-07-18T12:59:38.000Z</published>
+    <updated>2018-07-18T13:00:34.677Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>基本概念<ul><li>合并多个相似的结果集。等同于将一个表追加到另一个表，<font color="#F08080">从而实现将两个表的查询组合到一起</font>，使用谓词为UNION或UNION ALL。</li><li>联合查询：将多个查询的结果合并在一起（纵向合并）：字段数不变，多个查询的记录数合并。</li></ul></li><li>应用场景<ol><li>将同一张表中不同的结果（需要多条查询语句实现），合并到一起暂时数据<ul><li>男生身高升序排序，女生降序</li></ul></li><li>最常见：在数据量大的情况下，会对表进行分表操作，需要对每张表进行部分数据统计，使用联合查询来将数据存放在一起显示</li></ol></li><li>基本语法<ul><li>Select 语句 Union[union 选项] Select 语句;</li><li>Union选项：与select选项基本一样<ul><li>Distinct：去重，去掉完全重复的数据（默认）</li><li>All：保存所有的</li></ul></li><li>注意：union理论上子要保证字段数一样，不需要每次拿到的数据类型一致</li><li>永远只保留第一局select语句的位置</li></ul></li><li>Order by的使用<ul><li>在联合查询中要使用order by，对应的select语句必须使用括号括起来</li><li>order by 在联合查询中若要生效，必须配合使用limit：而limit后面必须跟对应的限制量（通常可以使用一个较大的值：大于对应表的记录数）</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;基本概念&lt;ul&gt;
+&lt;li&gt;合并多个相似的结果集。等同于将一个表追加到另一个表，&lt;font color=&quot;#F08080&quot;&gt;从而实现将两个表的查询组合到一起&lt;/font&gt;，使用谓词为UNION或UNION ALL。&lt;/li&gt;
+&lt;li&gt;联合查询：将多个查询的结果合并
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--查询中的运算符</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9F%A5%E8%AF%A2%E4%B8%AD%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/</id>
+    <published>2018-07-18T12:47:43.000Z</published>
+    <updated>2018-07-18T12:51:48.004Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul><li>+,-,*,/,%</li><li>通常不在条件中使用，而是用于结果运算</li><li>mysql中出发的运算结果使用浮点数表示</li><li>除法中除数如果为0，系统会给NULL</li><li>NULL进行任何算术运算结果都为NULL</li></ul><h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ul><li>>,&gt;=,&lt;,&lt;=,=&lt;&gt;（不等于）</li><li>用来在条件中进行限定结果</li><li>=：在mysql中没有对应的==比较符号，就是使用=来进行相等判断</li><li>&lt;=&gt;：相等比较</li><li>特殊应用：在字段结果中进行比较运算</li><li>在条件判断的时候，还有对应的比较运算符:计算区间<ul><li>between 条件1 and 条件2  （是闭区间查找）</li><li>between中条件1必须小于条件2</li></ul></li></ul><h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul><li>and,or,not</li><li>and:逻辑与</li><li>or:逻辑或</li><li>not:逻辑非</li></ul><h3 id="In运算符"><a href="#In运算符" class="headerlink" title="In运算符"></a>In运算符</h3><ul><li>当结果不是一个值，而是一个结果集的时候</li></ul><h3 id="Is运算符"><a href="#Is运算符" class="headerlink" title="Is运算符"></a>Is运算符</h3><ul><li>专门用来判断字段是否为空的运算符</li><li>基本语法：is null/is not null</li></ul><h3 id="Like运算符"><a href="#Like运算符" class="headerlink" title="Like运算符"></a>Like运算符</h3><ul><li>用来进行模糊匹配</li><li>基本语法:like ‘匹配模式’;</li><li>匹配模式中，有两种占位符<ul><li>_:匹配单个字符</li><li>%: 匹配多个字符</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;算术运算符&quot;&gt;&lt;a href=&quot;#算术运算符&quot; class=&quot;headerlink&quot; title=&quot;算术运算符&quot;&gt;&lt;/a&gt;算术运算符&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;+,-,*,/,%&lt;/li&gt;
+&lt;li&gt;通常不在条件中使用，而是用于结果运算&lt;/li&gt;
+&lt;li&gt;mysql
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--高级数据操作</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/</id>
+    <published>2018-07-18T12:39:51.000Z</published>
+    <updated>2018-07-18T12:41:38.099Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="新增数据"><a href="#新增数据" class="headerlink" title="新增数据"></a>新增数据</h3><ul><li>多数据插入<ul><li>只要写一次insert指令，但是可以直接插入多条记录</li><li>基本语法:insert  into 表名 [(字段列表)] values (值列表),(值列表)…;</li><li>insert into my_table values(‘张三’),(‘李四’),(‘王五’)…;</li></ul></li><li>主键冲突<ul><li>在有的表中，使用的是业务主键（字段含有业务意义），但是往往在进行数据插入的时候，又不确定数据表中是否已经存在对应的主键。</li><li>解决方案<ol><li>主键冲突更新:类似插入数据语法，如果插入数据过程主键冲突，采用更新方法<ul><li>insert into 表名 [(字段列表)] values (值列表) on duplicate key  update 字段 = 新值</li></ul></li><li>主键冲突替换:当主键冲突之后，干掉原来的数据，重新插入数据<ul><li>Replace into[(字段列表)] values (值列表);</li></ul></li></ol></li></ul></li><li>蠕虫复制<ul><li>一分为二，成倍的增加；从已有的数据中和获取数据，并且将获取到的数据插入到数据表中。</li><li>基本语法:insert into 表名 [(字段列表)] select */字段列表 from 表；</li><li>注意<ol><li>蠕虫复制的通常是重复数据；可以测试表的压力，还可以通过大量数据来测试表的效率（索引）</li><li>需要注意主键冲突</li></ol></li></ul></li></ul><h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><ul><li>在更新数据的时候，要注意:通常一定是跟随条件</li><li>如果没有条件，全表更新数据。但是可以使用 limit 来限制更新的数量<ul><li>update 表名 set 字段名 = 新值 [where 判断条件] limit 数量;</li></ul></li></ul><h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><ul><li>删除数据的时候尽量不要全部删除，应该使用where进行判断</li><li>删除数据的时候可以使用limit来限制要删除的具体数量</li><li>Delete删除数据时无法重置auto_increment</li><li>Truncate 表名 重置表选项中的自增长</li></ul><h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><ul><li>完整的查询指令:<font color="#F08080">Select select选项 字段列表 from 数据源</font> where 条件 group by 分组 order by 排序 limit 限制;</li><li>select 选项<ul><li>系统该如何对待查询得到的结果</li><li>ALL:默认的，表示保存所有的记录</li><li>Distinct:去重，去除重复的记录，只保留一条（所有字段都相同）</li><li>字段列表:有的时候需要从多张表获取数据，在获取数据的时候可能存在不同表中有同名的字段，需要将同名的字段命名成不同命的:别名 alias<ul><li>基本语法:字段名 [as] 别名</li></ul></li></ul></li><li>From数据源<ul><li>单表数据:From 表名;</li><li>多表数据:from 表1，表2…<ul><li>结果:笛卡尔积，两张表的数据记录数相乘，字段数拼接</li></ul></li><li>动态数据<ul><li>from后面跟的数据不是一个实体表，而是从表中查询出来的二维结果表（子查询）</li><li>基本语法:from (select 字段列表 from 表)as 别名;<font color="#F08080">(一定要有别名)</font></li></ul></li><li>Where子句<ul><li>从数据表中获取数据的时候，进行条件筛选</li></ul></li><li>Group by子句<ul><li>表示分组:根据指定字段进行分组，分组的目的是为了统计</li><li>分组统计<ul><li>基本语法:group by 字段名;</li><li>group by是为了分组后进行数据统计的，如果只是想看数据结果，group by没有什么含义:group by将数组按照指定字段进行分组后，<font color="#F08080">只会保留每组第一条记录</font></li><li>利用统计函数（聚合函数）:<ul><li>count():统计每组中的数量，如果统计的目标是字段，那么不统计NULL字段</li><li>avg():求平均值</li><li>sum():求和和</li><li>max():求最大值</li><li>min():求最小值</li><li>group_concat():为了将分组中指定的字段进行合并（拼接）</li></ul></li></ul></li><li>多分组<ul><li>将数据按照某个字段进行分组之后，对已经分组的数据进行再次分组</li><li>基本语法:group by 字段1，字段2;//先按照字段1进行排序，之后将结果按照字段2进行分组;</li></ul></li><li>分组排序<ul><li>默认按照分组字段进行排序，默认升序</li><li>基本语法:group by 字段 [asc|desc],字段 [asc|desc];</li></ul></li><li>回溯统计<ul><li>当分组进行多分组之后，往上统计的过程中，需要进行层层上报，将这种层层上报统计的过程称之为回溯统计；每一次分组向上统计的过程都会产生一次新的统计数据，而且当前数据对应的愤怒组字段为NULL;</li><li>基本语法:group by 字段 [asc|desc] with rollup;</li></ul></li></ul></li></ul></li><li>Having子句<ul><li>本质和where一样，是进行数据条件筛选</li><li>Having是在group by子句之后:可以对分组数据进行统计筛选，where不行</li><li>where不能使用聚合函数:聚合函数是用在group by where运行完毕</li><li>Having在group by 分组之后，可以使用聚合函数或者字段别名</li><li>having是在group by之后，group by是在where之后:where的时候表示将数据从磁盘拿到内存，where之之后的所有操作都是内存操作。</li></ul></li><li>Order by子句<ul><li>根据校对规则对数据进行排序</li><li>基本语法：order by 字段[asc|desc]; //asc升序，默认</li><li>多字段排序:order by 字段1 规则,字段2 规则…;</li></ul></li><li>Limit 子句<ul><li>主要是用来显示记录数量获取</li><li>记录数限制:<ul><li>纯粹的限制获取的数量</li><li>基本语法:limit 数量;</li><li>通常用在限定一条记录的时候</li></ul></li><li>分页<ul><li>利用limit来限制获取指定区间的数据</li><li>基本语法:limit offset,length; //offset 偏移量:从哪开始 length:具体获取多少条记录</li><li>Mysql中记录的数量从0开始</li><li>limit 0,2;表示获取前两条数据</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;新增数据&quot;&gt;&lt;a href=&quot;#新增数据&quot; class=&quot;headerlink&quot; title=&quot;新增数据&quot;&gt;&lt;/a&gt;新增数据&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;多数据插入&lt;ul&gt;
+&lt;li&gt;只要写一次insert指令，但是可以直接插入多条记录&lt;/li&gt;
+&lt;li&gt;基本语法:i
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--表关系</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%A1%A8%E5%85%B3%E7%B3%BB/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-表关系/</id>
+    <published>2018-07-18T12:29:19.000Z</published>
+    <updated>2018-07-18T12:29:46.728Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><ul><li>一张表中的一条记录与另外一张表中最多有一条明确的关系；通常，此设计方案保证两张表中使用同样的主键即可</li></ul><h3 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h3><ul><li>通常也叫作多对一，通常在“多”关系的表中去维护一个字段，这个字段是“一”关系的主键</li></ul><h3 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h3><ul><li>一张表中的一条记录在另外一张表中可以匹配到多条记录，反之亦然</li><li>通过第三张表解决</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一对一&quot;&gt;&lt;a href=&quot;#一对一&quot; class=&quot;headerlink&quot; title=&quot;一对一&quot;&gt;&lt;/a&gt;一对一&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;一张表中的一条记录与另外一张表中最多有一条明确的关系；通常，此设计方案保证两张表中使用同样的主键即可&lt;/li&gt;
+&lt;/ul
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--列属性</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%97%E5%B1%9E%E6%80%A7/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-列属性/</id>
+    <published>2018-07-18T12:27:16.000Z</published>
+    <updated>2018-07-18T12:27:49.237Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="列属性"><a href="#列属性" class="headerlink" title="列属性"></a>列属性</h3><ul><li>列属性又称为字段属性,mysql中一共有6个属性:null,默认值，列描述，主键，唯一键和自动增长</li><li>Null属性<ul><li>设计表的时候尽量不让数据为空</li><li>Mysql的纪录长度为65535个字节，如果表中有字段允许为null，那么系统就会设计保留一个字节来存储NULL，最终有效存储长度为65535个字节</li></ul></li><li>默认值<ul><li>Default：默认值，没有指定默认为NULL</li></ul></li><li>列描述<ul><li>comment：注释说明</li><li>基本语法:comment’字段描述’；</li></ul></li><li>主键<ul><li>primary key，在一张表中，有且只有一个字段，里面的值具有唯一性</li><li>创建方式<ul><li>1.字节在需要做主键的字段后，添加primary key属性来确定主键</li><li>2.在所有字段之后增加primary key选项;primary key（字段信息）</li><li>表后增加:alter table 表名 add primary key(字段);</li></ul></li><li>删除主键<ul><li>基本语法:alter table 表名 drop primary key;</li></ul></li><li>复合主键</li><li>主键约束<ul><li>主键一旦增加，那么对对应的字段有数据要求<ol><li>当前字段对应的数据不能为空</li><li>当前字段对应的数据不能有任何重复</li></ol></li></ul></li><li>主键分类<ul><li>业务主键:主键所在的字段具体有业务意义(学生ID，课程ID)</li><li>逻辑主键：自然增长的整型(应用广泛)</li></ul></li></ul></li><li>自动增长<ul><li>auto_increment,当给定某个字段属性后，该列的属性没有提供确定的数据的时候，系统会根据之前已经存在的数据进行自动增长后，填充数据</li><li>原理<ul><li>在系统中有维护一组数据，用来保存当前使用了自动增长属性的字段，记住当前对应的数据值，在给定一个指定的步长</li><li>当用户进行数据插入的时候，如果没有给定值，系统会在原始值上再加上步长变成新的数据</li><li>自动增长的出发:给定属性的字段没有提供值</li><li>自动增长只适用于数值</li></ul></li><li>基本语法<ul><li>在字段之后增加一个属性auto_increment</li></ul></li><li>修改自增长<ol><li>查看自增长：自增长一旦触发使用后，会自动在表选项中增加一个选项</li><li>表选项可以通过修改表结构来实现<ul><li>Alter table 表名 auto_increment=值;</li></ul></li></ol></li><li>删除自增长:就是在字段属性之后不再保留auto_increment，当用户修改自增长所在字段时，如果没有看到auto_increment属性，系统会自动清除该属性</li><li>细节问题<ol><li>一张表只有一个自增长，自增长会上升到表选项中</li><li>如果数据插入中没有触发自增长（给定了数据），那么自增长不会表现</li></ol></li></ul></li><li>唯一键<ul><li>unique key,用来保证对应的字段中的数据唯一</li><li>主键也可以用来保证字段数据唯一性，但是一张表只有一个主键</li><li>为一件在一张表中可以有多个</li><li>唯一键允许字段数据为NULL，NULL可以有多个（NULL不参与比较）</li><li>创建唯一键<ol><li>直接在表字段之后增加唯一键表示符:unique[key]</li><li>在左右的字段之后使用unique key(字段列表);</li><li>在创建完表之后也可以增加唯一键:alert table 表名 add unique key(字段列表);</li></ol></li><li>查看唯一键<ul><li>可以通过查看表结构实现</li></ul></li><li>删除唯一键<ul><li>一个表中允许存在多个唯一键，不能直接drop</li><li>基本语法:alter table 表名 drop index 唯一名字(通常与字段名相同)</li></ul></li><li>修改唯一键<ul><li>先删除后增加</li></ul></li><li>复合唯一键<ul><li>与主键一样可以使用多个字段来共同保证唯一性</li><li>一般主键都是单一字段（逻辑组件），而其他需要唯一性需要由唯一键来处理</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;列属性&quot;&gt;&lt;a href=&quot;#列属性&quot; class=&quot;headerlink&quot; title=&quot;列属性&quot;&gt;&lt;/a&gt;列属性&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;列属性又称为字段属性,mysql中一共有6个属性:null,默认值，列描述，主键，唯一键和自动增长&lt;/li&gt;
+&lt;li&gt;N
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--列类型</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%97%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-列类型/</id>
+    <published>2018-07-18T12:18:10.000Z</published>
+    <updated>2018-07-18T12:19:51.892Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><ul><li>Tinyint<ul><li>迷你整型:系统采用一个字节来保存一个字节的整型:1个字节=8位，最大能表示的数值0-255</li></ul></li><li>Smallint<ul><li>小整型:系统采用两个字节来保存的整型:0-65535</li></ul></li><li>Mediumint<ul><li>中整型:3个字节</li></ul></li><li>Int<ul><li>整型:4个字节</li></ul></li><li><p>BigInt</p><ul><li>大整型:8个字节</li></ul></li><li><p>tinyint插入255报错原因</p><ul><li>Mysql默认为整型加入负数。实际表示的区间为<font color="#F08080">-128-127</font></li></ul></li><li>无符号标识设定<ul><li>无符号:表示存储的数据在当前字段中，没有负数（只有正数，区间为0-255）</li><li>基本语法:在类型之后加上 <font color="#F08080">unsigned</font></li></ul></li><li>显示长度<ul><li>指数据（整型）在数据显示的时候，可以显示多长位。</li><li>Tinyint（3）:表示最长可以显示3位，unsigned说明只能是正数，0-255永远不会超过三位</li><li>Tinyint（4）:表示最长可以显示4位，-128~127</li><li>显示长度只是代表数据是否可以打到指定的长度，但是不会自动满足道指定长度，如果想要数据显示的时候，保持最高位（显示长度），那么还需要给字段增加一个zerofill属性</li></ul></li></ul><h3 id="小数型"><a href="#小数型" class="headerlink" title="小数型"></a>小数型</h3><ul><li><p>浮点数</p><ul><li>又称之为精度类型，有可能<font color="#F08080">会丢失精度</font>（尤其是超出范围的时候）</li><li>浮点型之所以能存储较大的数值(不精确)，原因就是利用存储数据的位来存储指数</li><li>浮点数的应用:通常用来保存一些数量特别大，大到可以不用那么精准的数据</li></ul></li><li><p>Float</p><ul><li>又称之为单精度类型:系统提供4个字节来存储数据，但是能表示的数据范围比整型大得多，大概是10^38;<font color="#F08080">只能保证大概7个左右的精度</font>(如果数据在7位数以内基本是准确的，如果超过7位数，就不准确)</li><li>基本语法<ul><li>Float:表示不指定小数位的浮点数</li><li>Float（M，D）表示一共存储M个有效数字，其中小数部分占D位</li><li>Float（8,2）整数部分8位，小数部分2位</li></ul></li></ul></li><li><p>Double</p><ul><li>双精度:系统采用8个字节来存储数据，表示范围更大，10^308，单精度只有15位左右</li></ul></li><li>定点数<ul><li>能够保证数据精确的小数类型（小数部分可能不精确，超过长度会四舍五入，整数部分一定精确）</li></ul></li><li>Decimal<ul><li>系统自动根据存储的数据来分配存储空间，每大概9个数就会分配4个字节来进行存储，同时小数和整数部分是分开的</li><li>Decimal（M，D），M表示总长度，最大不超过65，D代表小数部分，最长不超过30</li></ul></li></ul><h3 id="时间日期类型"><a href="#时间日期类型" class="headerlink" title="时间日期类型"></a>时间日期类型</h3><ul><li>Date<ul><li>日期类型:系统使用三个字节来存储数据，对应的格式为:YYYY-mm-dd,能表示的范围是从1000-01-01到9999-12-12，初始值为0000-00-00</li></ul></li><li>Time<ul><li>时间类型：能够表示某个指定的时间，但是系统同样是提供3个字节来存储，对应的格式为:HH:ii:ss,但是mysql中的time类型能够表示时间范围要大得多，能表示从-838:59:59~838:59:59,在mysql中具体的用处是用来描述时间段</li></ul></li><li>Datetime<ul><li>日期时间类型：使用8个字节存储数据，格式为YYYY-MM-dd HH:ii:ss,能表示的区间1001-01-01 00:00:00到9999-12-12 13:59:59,其可以为0值</li></ul></li><li>TimeStamp<ul><li>时间戳类型:mysql中的时间戳表示从格林威治时间开始，格式和上面一样</li></ul></li><li>Year<ul><li>年类型:暂用一个字节来保存，能表示1900-2155年</li></ul></li></ul><h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><ul><li>Char<ul><li>定长字符:指定长度之后，系统一定会分配指定的空间用于存储数据</li><li>基本语法:char（L），L代表字符数（中文与英文字母一样），L长度为0-255</li></ul></li><li>Varchar<ul><li>变长字符:指定长度之后，系统会根据实际存储的数据来计算长度，分配合适的长度（数据没有超过长度）</li><li>基本语法:Varchar（L），L代表==字符数==，L的长度理论值为0-65535</li><li>因为varchar要记录数据长度(系统会根据数据长度自动分配空间)，所以varchar数据产生后，系统都会在数据后面增加1-2个字节的额外开销，是用来保存数据所占用的空间长度。如果数据本身小于127个字符，额外开销一个字节；如果大于127个，就开销2个字节；</li><li>char和varchar的区别<ul><li>char一定会使用指定的空间，varchar是根据数据来定空间</li><li>char的数据查询效率比varchar高；varchar是需要通过后面的记录数来计算</li><li>如果确定数据一定占指定长度，那么用char类型；</li><li>如果不确定数据到底有多少，使用varchar类型</li><li>如果数据长度超过255个字符，不论是否固定长度，都会使用text，不再使用char和varchar</li></ul></li></ul></li><li>Text<ul><li>文本类型：本质上mysql提供了两种文本类型</li><li>Text:存储普通的字符文本</li><li>Blob：存储二进制文本（图片，文件），一般都不会使用blob来存储文件本身，通常是使用一个连接来指向对应的文件本身</li><li>Text：系统提供4种text<ul><li>Tinytext：系统使用一个字节来保存，实际能够存储2^8+1</li><li>Text:使用两个字节保存，实际存储为2^16+2</li><li>Mediumtext:使用三个字节保存，实际存储为:2^24+3</li><li>Longtext:使用十个字节保存:实际存储为:2^32+4</li></ul></li><li>系统会自动根据数据长度来选择合适的文本类型</li><li>如果数据超过255个字符，那么一定选择text存储</li></ul></li><li>Enum<ul><li>枚举类型:在数据插入之前，先设定几个项，这几个项就是可能最终出现的数据结果</li><li>如果确定某个字段的数据只有那么几个值:如性别</li><li>基本语法:enum（数据值1，数据值2…）</li><li>系统提供了1-2个字节来存储枚举:通过计算enum列举的具体值来选择实际的存储空间:如果数据值列表在255个之内，一个字节就可以；如果超过255但是小与65535，就使用两个字节来保存。</li></ul></li><li>Set<ul><li>集合:是一种将多个数据选项可以同时保存的数据类型，本质是将指定的项按照对应的二进制位进行控制:1表示该选项被选中，0表示该选项没有被选中</li><li>基本语法:set(‘值1’,’值2’…)</li><li>系统为set提供了多个字节进行保存，但是系统会自动计算选择具体的存储单元</li><li>1个字节:set只能有8个选项</li><li>2个字节:只能有16个选项</li><li>3个字节:只能有24个选项</li><li>8个字节:可以由64个选项</li><li>set和enum一样存储在数据库中的是下表，而不是字符串</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;整型&quot;&gt;&lt;a href=&quot;#整型&quot; class=&quot;headerlink&quot; title=&quot;整型&quot;&gt;&lt;/a&gt;整型&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Tinyint&lt;ul&gt;
+&lt;li&gt;迷你整型:系统采用一个字节来保存一个字节的整型:1个字节=8位，最大能表示的数值0-255&lt;/l
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--数据基础操作</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/</id>
+    <published>2018-07-18T11:55:10.000Z</published>
+    <updated>2018-07-18T12:02:44.615Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><ul><li>本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面</li><li>基本语法：Insert into 表名[(字段列表)] values （对应的值）<ul><li>insert into teacher (name,age) values(‘jack’,28);</li></ul></li><li>基本语法：向表中所有字段插入数据<ul><li>Insert into 表名 values(对应表结构)  //<font color="#F08080">值列表必须与字段列表一致</font></li><li>insert into teacher values(‘Lee’,30);</li></ul></li></ul><h3 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作"></a>查询操作</h3><ul><li>查询表中全部数据: select * from 表名;</li><li>查询表中部分字段:select 字段列表 from 表名;(字段列表使用”,”隔开)</li><li>简单条件查询数据:select 字段列表/* from 表名 where 字段名 = 值;</li></ul><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><ul><li>基本语法：<font color="#F08080">delete</font> from 表名[where 条件]</li></ul><h3 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h3><ul><li>更新：将数据进行修改（通常是修改部分字段数据）</li><li>基本语法：update 表名 <font color="#F08080">set</font> 字段名 = 新值[where 条件]</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;插入操作&quot;&gt;&lt;a href=&quot;#插入操作&quot; class=&quot;headerlink&quot; title=&quot;插入操作&quot;&gt;&lt;/a&gt;插入操作&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面&lt;/li&gt;
+&lt;li&gt;基本语法：Insert into
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--表操作</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%A1%A8%E6%93%8D%E4%BD%9C/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-表操作/</id>
+    <published>2018-07-18T11:43:01.000Z</published>
+    <updated>2018-07-18T11:51:20.058Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="普通创建表"><a href="#普通创建表" class="headerlink" title="普通创建表"></a>普通创建表</h3><ul><li>基本语法： create table 表名字 （字段名 字段类型 [字段属性]，字段名 字段类型 [字段属性]…）[表选项];<ul><li>create table clazz(<br>name varchar(32) …<br>);</li><li>表必须放在对应的数据库下，有以下两种方式：<ol><li>在数据表名字前面加上数据库名字，用“.”连接即可，<font color="#F08080">数据库.数据表</font>。</li><li>在创建是维护局表之前，先进入到某个数据库，<font color="#F08080">use 数据库名字</font></li></ol></li></ul></li><li>表选项:与数据库选项类似<ul><li>Engine:存储引擎，mysql提供的具体存储数据的方式，默认InnoDB，5.5之前为Myisam（两者的区别之后再提）</li><li>Charset：字符集，只对当前自己表有效（级别比数据库高）</li><li>Collate：校对集</li><li>create table mydatabase. clazz(<br>name varchar(32) …<br>)engine InnoDB charset utf8;</li></ul></li></ul><h3 id="复制已有表结构"><a href="#复制已有表结构" class="headerlink" title="复制已有表结构"></a>复制已有表结构</h3><ul><li>基本语法：create table 新表名 like 表名；(只要使用==数据库.表名==就可以在任意数据库下复制其他数据库的表)</li></ul><h3 id="显示数据表"><a href="#显示数据表" class="headerlink" title="显示数据表"></a>显示数据表</h3><ul><li>每当一张数据表创建，就会在对应的数据库下创建一些文件（与数据库引擎有关）</li><li>显示所有表<ul><li>基本语法:show tables;</li></ul></li><li>匹配显示表<ul><li>基本语法:show tables like ‘匹配模式’;</li></ul></li><li>显示表结构<ul><li>本质含义：显示表中所包含的字段信息（名字，类型，属性等）</li><li>Describe 表名;</li><li>Desc 表名(常用);</li><li>show columns from 表名;</li></ul></li></ul><h3 id="显示表创建语句"><a href="#显示表创建语句" class="headerlink" title="显示表创建语句"></a>显示表创建语句</h3><ul><li>基本语法：show create table 表名;</li></ul><h3 id="设置表属性"><a href="#设置表属性" class="headerlink" title="设置表属性"></a>设置表属性</h3><ul><li>表属性指的是engine，charset和collate</li><li>基本语法: alter table 表名 [表选项] [=] 表属性;(如果数据库已经确定了，里面有很多的数据后，不要轻易修改表选项)</li></ul><h3 id="修改表结构"><a href="#修改表结构" class="headerlink" title="修改表结构"></a>修改表结构</h3><ul><li>修改表名:<font color="#F08080">rename</font> table 旧表名 to 新表名;</li><li>新增字段:alter table 表名 <font color="#F08080">add</font>[column] 新字段名 列类型[列属性] [位置first/after字段名]</li><li>字段位置：字段想要存放的位置<ul><li>First：在某某之前（最前面），第一个字段</li><li>After：放在某某字段之后最后</li></ul></li><li>修改字段名：alter table 表名 <font color="#F08080">change</font> 旧字段名 新字段名 ==字段类型==[列属性][新位置]</li><li>修改字段类型（属性）：alter table 表名 <font color="#F08080">modify</font> 字段名 新类型[新属性][新位置]</li><li>删除字段:alter table 表名 <font color="#F08080">drop</font> 字段名;</li><li>删除表结构<ul><li>基础语法:drop table 表名[,表名 2…];(可以同时删除多个表)</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;普通创建表&quot;&gt;&lt;a href=&quot;#普通创建表&quot; class=&quot;headerlink&quot; title=&quot;普通创建表&quot;&gt;&lt;/a&gt;普通创建表&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;基本语法： create table 表名字 （字段名 字段类型 [字段属性]，字段名 字段类型 [字段
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Mysql的数据库复习笔记--数据库的基本操作</title>
+    <link href="https://anntly.github.io/2018/07/18/%E5%9F%BA%E4%BA%8EMysql%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/</id>
+    <published>2018-07-18T11:38:53.000Z</published>
+    <updated>2018-07-18T11:39:46.003Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul><li>基本语法：create database    数据库名字[库选项]；</li><li>库选项：数据库的相关属性<ul><li>字符集：charset 字符集（如果不指定，就会采用DBMS默认的）<ul><li>基本语法：create database 数据库名称 charset 字符集名称</li></ul></li><li>校对集：collate校对集<ul><li>校对集：数据比较方式</li><li>必须在无数据前进行声明，如果有了数据再进行数据修改，那么修改无效</li><li>三种格式：<ol><li>_bin:binary,二进制比较，取出二进制位，一位一位进行比较，区分大小写；</li><li>_cs:case sensitive,大小写敏感，区分大小写；</li><li>_ci:case insensitive，大小写不敏感，不区分大小写;</li></ol></li></ul></li></ul></li></ul><h3 id="显示数据库"><a href="#显示数据库" class="headerlink" title="显示数据库"></a>显示数据库</h3><ul><li>创建数据库会在mysql安装目录下的”data”文件夹下创建对应名称的文件夹</li></ul><h4 id="显示所有数据库"><a href="#显示所有数据库" class="headerlink" title="显示所有数据库"></a>显示所有数据库</h4><ul><li>基本语法：show databases;</li></ul><h4 id="显示部分数据库"><a href="#显示部分数据库" class="headerlink" title="显示部分数据库"></a>显示部分数据库</h4><ul><li>基本语法：show databases like ‘匹配模式’;</li><li>_:匹配当前位置单个字符</li><li>%:匹配指定位置多个字符</li></ul><h4 id="显示创建数据库语句"><a href="#显示创建数据库语句" class="headerlink" title="显示创建数据库语句"></a>显示创建数据库语句</h4><ul><li>基本语法：show create database 数据库名称;</li></ul><h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><ul><li>基本语法：use  数据库名称;</li></ul><h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><ul><li>修改数据库的字符集（库选项）：字符集和校对集<ul><li>基本语法：alter database 数据库名称 charset = 字符集；</li></ul></li><li>是否可以修改数据库名字？mysql5.5之前可以，之后不可以</li></ul><h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><ul><li>基本语法：drop database 数据库名称；</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;创建数据库&quot;&gt;&lt;a href=&quot;#创建数据库&quot; class=&quot;headerlink&quot; title=&quot;创建数据库&quot;&gt;&lt;/a&gt;创建数据库&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;基本语法：create database    数据库名字[库选项]；&lt;/li&gt;
+&lt;li&gt;库选项：数据库
+      
+    
+    </summary>
+    
+    
+      <category term="Mysql" scheme="https://anntly.github.io/tags/Mysql/"/>
+    
+      <category term="数据库" scheme="https://anntly.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>基于Mysql的数据库复习笔记--Mysql的登录与退出</title>

@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Anntly&#39;s Blog</title>
+    <title>基于Mysql的数据库复习笔记--连接查询 · Anntly&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180709 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180709 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Anntly&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">基于Mysql的数据库复习笔记--连接查询</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Anntly's Blog.</a>
 </header>
@@ -213,24 +226,76 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            基于Mysql的数据库复习笔记--连接查询
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">988</span> / Reading time: <span class="post-count">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/07/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,488 +396,146 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-子查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--子查询</span>
-        </a>
-        <div class="abstract-content">
-            子查询
-sub query:当一个查询是另外一个查询的条件时，称之为子查询
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><ul>
+<li>将多张表连到一起进行查询（会导致记录数行和字段数列发生改变）</li>
+<li>意义：在关系型数据库设计过程中，实体（表）与实体之间存在很多联系。在关系型数据库表的设计过程中，遵循这关系来设计：一对一，一对多，多对多，通常在实际的操作中需要利用这层关系保证数据的完整性。</li>
+<li>分类<ul>
+<li>交叉连接<ul>
+<li>将两张表的数据与另外一张表彼此交叉</li>
+<li>原理：从第一张表依次取出每一条记录；取出每一条记录后，与另外一张表的全部记录挨个匹配；没有任何匹配条件，所有的结果都会进行保留；</li>
+<li>记录数 = 第一张表记录数*第二张表记录数=第一张表字段数+第二张表字段数；</li>
+<li>基本语法：<font color="#F08080">表1 cross join 表2；</font></li>
+<li>应用：交叉连接产生的结果是笛卡尔积，没有实际应用。</li>
+<li>本质：from 表1，表2；</li>
+</ul>
+</li>
+<li>内连接<ul>
+<li>inner join：从一张表中取出所有的记录，去另外一张表中匹配：利用匹配条件匹配，匹配成功则保留，失败就放弃</li>
+<li>原理：从第一张那个表中取出一条记录，然后去另外一张表中进行匹配；利用匹配条件进行匹配；匹配到就保留，继续匹配；匹配失败就向下继续，如果权标匹配失败，结束</li>
+<li>基本语法：<font color="#F08080">表1 [inner] join 表2 on 匹配条件；</font></li>
+<li>如果内连接没有条件，结果就是交叉匹配的结果</li>
+<li>因为表的设计通常容易产生同名字段，尤其是id，为了避免重名出现错误，通常使用<font color="#F08080">表名.字段名</font>来确保唯一性</li>
+<li>通常，如果条件中使用到的表名过长，可以使用别名</li>
+<li>内连接匹配的时候，必须保证匹配到才保存</li>
+<li>内连接因为可以不强制使用匹配条件，因此可以在数据匹配之后，使用where条件来限制，效果与on一样（建议使用on）</li>
+<li>应用：通常是在对数据有精确要求的地方使用：必须保证两张表中都能进行数据匹配</li>
+</ul>
+</li>
+<li>外链接<ul>
+<li>outer join：按照某一张表作为主表（表中所有记录在最后都会保留），根据条件去连接另外一张表，从而得到目标数据</li>
+<li>左外连接（left join）<ul>
+<li>左表是主表<ul>
+<li>基本语法：<font color="#F08080">主表 left join 从表 on</font> 连接条件;</li>
+<li>左连接对应的主表数据在左边</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>右外连接（right join）<ul>
+<li>右表是主表</li>
+<li>基本语法：<font color="#F08080">从表 right join 主表 on</font> 连接条件;</li>
+<li>右连接对应的主表数据在右边</li>
+</ul>
+</li>
+<li>原理：<ol>
+<li>确定连接主表：左连接左边为主表，右连接右表尾主表</li>
+<li>拿主表的每一条记录，去匹配另一张表（从表）的每一条记录</li>
+<li>如果匹配条件：保留；不满足即不保留</li>
+<li>如果主表记录在从表中一条都没有匹配成功，那么也要保留该记录；从表对应的字段值都为NULL</li>
+</ol>
+</li>
+<li>特点<ol>
+<li>外链接中主表数据记录一定会保存：连接之后不会出现记录数少于主表</li>
+<li>左连接和右连接可以互相转换，但是数据对应的位置（表顺序）会发生改变</li>
+</ol>
+</li>
+<li>应用<ul>
+<li>常用的一种数据获取方式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自然连接</li>
+</ul>
+</li>
+<li>Using关键字<ul>
+<li>在连接查询时代替on关键字</li>
+<li>原理<ul>
+<li>在连接查询时，使用on的地方用using代替</li>
+<li>使用using的前提是对应两张表的字段时同名</li>
+<li>如果是用using关键字，同名字段最终结果中只会保留一个</li>
+</ul>
+</li>
+<li>语法<ul>
+<li><font color="#F08080">表1 [inner，left，right] join 表2 using(同名字段表);//连接字段</font>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-子查询分类
-按功能分
-标量子查询：子查询返回的结果是一个数据（一行一列）
-列子查询：返回的接轨是一列（一列多行）
-行子查询：返回的结果是一行（一行多列）
-表子查询：返回的结果是多行多列（多行多列）
-Exists子查询：返回的结果是1或者0（类似布尔操作）
-
-
-按位置分
-Where子查询：子查询出现的位置在where条件中
-From子查询：子查询出现的位置在from数据源中（做数据源）
-
-
-
-标量子查询
-子查询得到的结果是一个数据（一行一列）
-基本语法：select * from 数据源 where 条件判断 =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--连接查询</span>
-        </a>
-        <div class="abstract-content">
-            连接查询
-将多张表连到一起进行查询（会导致记录数行和字段数列发生改变）
-意义：在关系型数据库设计过程中，实体（表）与实体之间存在很多联系。在关系型数据库表的设计过程中，遵循这关系来设计：一对一，一对多，多对多，通常在实际的操作中需要利用这层关系保证数据的完整性。
-分类
-交叉连接
-将两张表的数据与另外一张表彼此交叉
-原理：从第一张表依次取出每一条记录；取出每一条记录后，与另外一张表的全部记录挨个匹配；没有任何匹配条件，所有的结果都会进行保留；
-记录数 = 第一张表记录数*第二张表记录数=第一张表字段数+第二张表字段数；
-基本语法：表1 cross join 表2；
-应用：交叉连接产生的结果...
+        <div class="license-wrapper">
+            <p>原文作者: <a href="https://anntly.github.io">Anntly</a>
+            <p>原文链接: <a href="https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-连接查询/">https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-连接查询/</a>
+            <p>发表日期: <a href="https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-连接查询/">July 18th 2018, 9:05:34 pm</a>
+            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--联合查询</span>
-        </a>
-        <div class="abstract-content">
-            
-基本概念
-合并多个相似的结果集。等同于将一个表追加到另一个表，从而实现将两个表的查询组合到一起，使用谓词为UNION或UNION ALL。
-联合查询：将多个查询的结果合并在一起（纵向合并）：字段数不变，多个查询的记录数合并。
-
-
-应用场景
-将同一张表中不同的结果（需要多条查询语句实现），合并到一起暂时数据
-男生身高升序排序，女生降序
-
-
-最常见：在数据量大的情况下，会对表进行分表操作，需要对每张表进行部分数据统计，使用联合查询来将数据存放在一起显示
-
-
-基本语法
-Select 语句 Union[union 选项] Select 语句;
-Union选项：与select选项基本一样
-Dis...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >
-            
-                <span>基于Mysql的数据库复习笔记--查询中的运算符</span>
-        </a>
-        <div class="abstract-content">
-            算术运算符
-+,-,*,/,%
-通常不在条件中使用，而是用于结果运算
-mysql中出发的运算结果使用浮点数表示
-除法中除数如果为0，系统会给NULL
-NULL进行任何算术运算结果都为NULL
-
-比较运算符
->,&gt;=,&lt;,&lt;=,=&lt;&gt;（不等于）
-用来在条件中进行限定结果
-=：在mysql中没有对应的==比较符号，就是使用=来进行相等判断
-&lt;=&gt;：相等比较
-特殊应用：在字段结果中进行比较运算
-在条件判断的时候，还有对应的比较运算符:计算区间
-between 条件1 and 条件2  （是闭区间查找）
-between中条件1必须小于条件2
-
-
-
-逻辑运...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--高级数据操作</span>
-        </a>
-        <div class="abstract-content">
-            新增数据
-多数据插入
-只要写一次insert指令，但是可以直接插入多条记录
-基本语法:insert  into 表名 [(字段列表)] values (值列表),(值列表)…;
-insert into my_table values(‘张三’),(‘李四’),(‘王五’)…;
-
-
-主键冲突
-在有的表中，使用的是业务主键（字段含有业务意义），但是往往在进行数据插入的时候，又不确定数据表中是否已经存在对应的主键。
-解决方案
-主键冲突更新:类似插入数据语法，如果插入数据过程主键冲突，采用更新方法
-insert into 表名 [(字段列表)] values (值列表) on duplicate...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >
-            
-                <span>基于Mysql的数据库复习笔记--表关系</span>
-        </a>
-        <div class="abstract-content">
-            一对一
-一张表中的一条记录与另外一张表中最多有一条明确的关系；通常，此设计方案保证两张表中使用同样的主键即可
-
-一对多
-通常也叫作多对一，通常在“多”关系的表中去维护一个字段，这个字段是“一”关系的主键
-
-多对多
-一张表中的一条记录在另外一张表中可以匹配到多条记录，反之亦然
-通过第三张表解决
-
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >
-            
-                <span>基于Mysql的数据库复习笔记--列属性</span>
-        </a>
-        <div class="abstract-content">
-            列属性
-列属性又称为字段属性,mysql中一共有6个属性:null,默认值，列描述，主键，唯一键和自动增长
-Null属性
-设计表的时候尽量不让数据为空
-Mysql的纪录长度为65535个字节，如果表中有字段允许为null，那么系统就会设计保留一个字节来存储NULL，最终有效存储长度为65535个字节
-
-
-默认值
-Default：默认值，没有指定默认为NULL
-
-
-列描述
-comment：注释说明
-基本语法:comment’字段描述’；
-
-
-主键
-primary key，在一张表中，有且只有一个字段，里面的值具有唯一性
-创建方式
-1.字节在需要做主键的字段后，添加primary key属性...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >
-            
-                <span>基于Mysql的数据库复习笔记--列类型</span>
-        </a>
-        <div class="abstract-content">
-            整型
-Tinyint
-迷你整型:系统采用一个字节来保存一个字节的整型:1个字节=8位，最大能表示的数值0-255
-
-
-Smallint
-小整型:系统采用两个字节来保存的整型:0-65535
-
-
-Mediumint
-中整型:3个字节
-
-
-Int
-整型:4个字节
-
-
-BigInt
-
-大整型:8个字节
-
-
-tinyint插入255报错原因
-
-Mysql默认为整型加入负数。实际表示的区间为-128-127
-
-
-无符号标识设定
-无符号:表示存储的数据在当前字段中，没有负数（只有正数，区间为0-255）
-基本语法:在类型之后加上 unsigned
-
-
-显示长度
-指数据（整型）在数据显示的时候，可以显...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--数据基础操作</span>
-        </a>
-        <div class="abstract-content">
-            插入操作
-本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面
-基本语法：Insert into 表名[(字段列表)] values （对应的值）
-insert into teacher (name,age) values(‘jack’,28);
-
-
-基本语法：向表中所有字段插入数据
-Insert into 表名 values(对应表结构)  //值列表必须与字段列表一致
-insert into teacher values(‘Lee’,30);
-
-
-
-查询操作
-查询表中全部数据: select * from 表名;
-查询表中部分字段:select 字段列表 from 表名;(字...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--表操作</span>
-        </a>
-        <div class="abstract-content">
-            普通创建表
-基本语法： create table 表名字 （字段名 字段类型 [字段属性]，字段名 字段类型 [字段属性]…）[表选项];
-create table clazz(name varchar(32) …);
-表必须放在对应的数据库下，有以下两种方式：
-在数据表名字前面加上数据库名字，用“.”连接即可，数据库.数据表。
-在创建是维护局表之前，先进入到某个数据库，use 数据库名字
-
-
-
-
-表选项:与数据库选项类似
-Engine:存储引擎，mysql提供的具体存储数据的方式，默认InnoDB，5.5之前为Myisam（两者的区别之后再提）
-Charset：字符集，只对当前自己表有...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/07/18/基于Mysql的数据库复习笔记-子查询/" title= 基于Mysql的数据库复习笔记--子查询 >
+                    <div class="nextTitle">基于Mysql的数据库复习笔记--子查询</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" title= 基于Mysql的数据库复习笔记--联合查询 >
+                    <div class="prevTitle">基于Mysql的数据库复习笔记--联合查询</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC8zODExMy8xNDY0Mw==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">NEXT &#62;</a>
-    </nav>
     
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -900,6 +623,24 @@ Charset：字符集，只对当前自己表有...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接查询"><span class="toc-number">1.</span> <span class="toc-text">连接查询</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1243,6 +984,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

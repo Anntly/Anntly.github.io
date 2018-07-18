@@ -339,32 +339,25 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-子查询/" >
+        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >
             
-                <span>基于Mysql的数据库复习笔记--子查询</span>
+                <span>基于Mysql的数据库复习笔记--数据库的基本操作</span>
         </a>
         <div class="abstract-content">
-            子查询
-sub query:当一个查询是另外一个查询的条件时，称之为子查询
-
-子查询分类
-按功能分
-标量子查询：子查询返回的结果是一个数据（一行一列）
-列子查询：返回的接轨是一列（一列多行）
-行子查询：返回的结果是一行（一行多列）
-表子查询：返回的结果是多行多列（多行多列）
-Exists子查询：返回的结果是1或者0（类似布尔操作）
+            创建数据库
+基本语法：create database    数据库名字[库选项]；
+库选项：数据库的相关属性
+字符集：charset 字符集（如果不指定，就会采用DBMS默认的）
+基本语法：create database 数据库名称 charset 字符集名称
 
 
-按位置分
-Where子查询：子查询出现的位置在where条件中
-From子查询：子查询出现的位置在from数据源中（做数据源）
-
-
-
-标量子查询
-子查询得到的结果是一个数据（一行一列）
-基本语法：select * from 数据源 where 条件判断 =...
+校对集：collate校对集
+校对集：数据比较方式
+必须在无数据前进行声明，如果有了数据再进行数据修改，那么修改无效
+三种格式：
+_bin:binary,二进制比较，取出二进制位，一位一位进行比较，区分大小写；
+_cs:case sensitive,大小写敏感，区分大小写；
+_ci:case insensitive，大小写不敏...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -390,409 +383,26 @@ From子查询：子查询出现的位置在from数据源中（做数据源）
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >
+        <a class="abstract-title" href = "/2018/07/17/基于Mysql的数据库复习笔记-Mysql的登录与退出/" >
             
-                <span>基于Mysql的数据库复习笔记--连接查询</span>
+                <span>基于Mysql的数据库复习笔记--Mysql的登录与退出</span>
         </a>
         <div class="abstract-content">
-            连接查询
-将多张表连到一起进行查询（会导致记录数行和字段数列发生改变）
-意义：在关系型数据库设计过程中，实体（表）与实体之间存在很多联系。在关系型数据库表的设计过程中，遵循这关系来设计：一对一，一对多，多对多，通常在实际的操作中需要利用这层关系保证数据的完整性。
-分类
-交叉连接
-将两张表的数据与另外一张表彼此交叉
-原理：从第一张表依次取出每一条记录；取出每一条记录后，与另外一张表的全部记录挨个匹配；没有任何匹配条件，所有的结果都会进行保留；
-记录数 = 第一张表记录数*第二张表记录数=第一张表字段数+第二张表字段数；
-基本语法：表1 cross join 表2；
-应用：交叉连接产生的结果...
+            启动服务net start mysql（安装时使用的服务名称）
+停止服务net stop mysql
+登录
+找到mysql.exe（通过CMD控制台，如果在安装的时候指定了mysql.exe所在的路径为环境变量，就可以直接访问；否则需要进入到mysql.exe的路径中）
+输入对应的服务器地址:-h:host    -h[IP地址/域名]
+输入服务器中Mysql监听的端口号:-P:port            -P:3306（大写P）
+输入用户名：-u:username  -u:root
+输入密码:-p:password  -p:root(小写p)
+
+连接认证基本语法mysql.exe/...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--联合查询</span>
-        </a>
-        <div class="abstract-content">
-            
-基本概念
-合并多个相似的结果集。等同于将一个表追加到另一个表，从而实现将两个表的查询组合到一起，使用谓词为UNION或UNION ALL。
-联合查询：将多个查询的结果合并在一起（纵向合并）：字段数不变，多个查询的记录数合并。
-
-
-应用场景
-将同一张表中不同的结果（需要多条查询语句实现），合并到一起暂时数据
-男生身高升序排序，女生降序
-
-
-最常见：在数据量大的情况下，会对表进行分表操作，需要对每张表进行部分数据统计，使用联合查询来将数据存放在一起显示
-
-
-基本语法
-Select 语句 Union[union 选项] Select 语句;
-Union选项：与select选项基本一样
-Dis...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >
-            
-                <span>基于Mysql的数据库复习笔记--查询中的运算符</span>
-        </a>
-        <div class="abstract-content">
-            算术运算符
-+,-,*,/,%
-通常不在条件中使用，而是用于结果运算
-mysql中出发的运算结果使用浮点数表示
-除法中除数如果为0，系统会给NULL
-NULL进行任何算术运算结果都为NULL
-
-比较运算符
->,&gt;=,&lt;,&lt;=,=&lt;&gt;（不等于）
-用来在条件中进行限定结果
-=：在mysql中没有对应的==比较符号，就是使用=来进行相等判断
-&lt;=&gt;：相等比较
-特殊应用：在字段结果中进行比较运算
-在条件判断的时候，还有对应的比较运算符:计算区间
-between 条件1 and 条件2  （是闭区间查找）
-between中条件1必须小于条件2
-
-
-
-逻辑运...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--高级数据操作</span>
-        </a>
-        <div class="abstract-content">
-            新增数据
-多数据插入
-只要写一次insert指令，但是可以直接插入多条记录
-基本语法:insert  into 表名 [(字段列表)] values (值列表),(值列表)…;
-insert into my_table values(‘张三’),(‘李四’),(‘王五’)…;
-
-
-主键冲突
-在有的表中，使用的是业务主键（字段含有业务意义），但是往往在进行数据插入的时候，又不确定数据表中是否已经存在对应的主键。
-解决方案
-主键冲突更新:类似插入数据语法，如果插入数据过程主键冲突，采用更新方法
-insert into 表名 [(字段列表)] values (值列表) on duplicate...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >
-            
-                <span>基于Mysql的数据库复习笔记--表关系</span>
-        </a>
-        <div class="abstract-content">
-            一对一
-一张表中的一条记录与另外一张表中最多有一条明确的关系；通常，此设计方案保证两张表中使用同样的主键即可
-
-一对多
-通常也叫作多对一，通常在“多”关系的表中去维护一个字段，这个字段是“一”关系的主键
-
-多对多
-一张表中的一条记录在另外一张表中可以匹配到多条记录，反之亦然
-通过第三张表解决
-
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >
-            
-                <span>基于Mysql的数据库复习笔记--列属性</span>
-        </a>
-        <div class="abstract-content">
-            列属性
-列属性又称为字段属性,mysql中一共有6个属性:null,默认值，列描述，主键，唯一键和自动增长
-Null属性
-设计表的时候尽量不让数据为空
-Mysql的纪录长度为65535个字节，如果表中有字段允许为null，那么系统就会设计保留一个字节来存储NULL，最终有效存储长度为65535个字节
-
-
-默认值
-Default：默认值，没有指定默认为NULL
-
-
-列描述
-comment：注释说明
-基本语法:comment’字段描述’；
-
-
-主键
-primary key，在一张表中，有且只有一个字段，里面的值具有唯一性
-创建方式
-1.字节在需要做主键的字段后，添加primary key属性...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >
-            
-                <span>基于Mysql的数据库复习笔记--列类型</span>
-        </a>
-        <div class="abstract-content">
-            整型
-Tinyint
-迷你整型:系统采用一个字节来保存一个字节的整型:1个字节=8位，最大能表示的数值0-255
-
-
-Smallint
-小整型:系统采用两个字节来保存的整型:0-65535
-
-
-Mediumint
-中整型:3个字节
-
-
-Int
-整型:4个字节
-
-
-BigInt
-
-大整型:8个字节
-
-
-tinyint插入255报错原因
-
-Mysql默认为整型加入负数。实际表示的区间为-128-127
-
-
-无符号标识设定
-无符号:表示存储的数据在当前字段中，没有负数（只有正数，区间为0-255）
-基本语法:在类型之后加上 unsigned
-
-
-显示长度
-指数据（整型）在数据显示的时候，可以显...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--数据基础操作</span>
-        </a>
-        <div class="abstract-content">
-            插入操作
-本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面
-基本语法：Insert into 表名[(字段列表)] values （对应的值）
-insert into teacher (name,age) values(‘jack’,28);
-
-
-基本语法：向表中所有字段插入数据
-Insert into 表名 values(对应表结构)  //值列表必须与字段列表一致
-insert into teacher values(‘Lee’,30);
-
-
-
-查询操作
-查询表中全部数据: select * from 表名;
-查询表中部分字段:select 字段列表 from 表名;(字...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--表操作</span>
-        </a>
-        <div class="abstract-content">
-            普通创建表
-基本语法： create table 表名字 （字段名 字段类型 [字段属性]，字段名 字段类型 [字段属性]…）[表选项];
-create table clazz(name varchar(32) …);
-表必须放在对应的数据库下，有以下两种方式：
-在数据表名字前面加上数据库名字，用“.”连接即可，数据库.数据表。
-在创建是维护局表之前，先进入到某个数据库，use 数据库名字
-
-
-
-
-表选项:与数据库选项类似
-Engine:存储引擎，mysql提供的具体存储数据的方式，默认InnoDB，5.5之前为Myisam（两者的区别之后再提）
-Charset：字符集，只对当前自己表有...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/17</span>
             </div>
             <!-- tags  -->
             
@@ -810,7 +420,7 @@ Charset：字符集，只对当前自己表有...
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/tags/数据库/">&#60; PREV</a><a class="page-number" href="/tags/数据库/">1</a><span class="page-number current">2</span>
     </nav>
     
 </main>
