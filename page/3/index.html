@@ -354,6 +354,161 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >
+            
+                <span>基于Mysql的数据库复习笔记--表关系</span>
+        </a>
+        <div class="abstract-content">
+            一对一
+一张表中的一条记录与另外一张表中最多有一条明确的关系；通常，此设计方案保证两张表中使用同样的主键即可
+
+一对多
+通常也叫作多对一，通常在“多”关系的表中去维护一个字段，这个字段是“一”关系的主键
+
+多对多
+一张表中的一条记录在另外一张表中可以匹配到多条记录，反之亦然
+通过第三张表解决
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >
+            
+                <span>基于Mysql的数据库复习笔记--列属性</span>
+        </a>
+        <div class="abstract-content">
+            列属性
+列属性又称为字段属性,mysql中一共有6个属性:null,默认值，列描述，主键，唯一键和自动增长
+Null属性
+设计表的时候尽量不让数据为空
+Mysql的纪录长度为65535个字节，如果表中有字段允许为null，那么系统就会设计保留一个字节来存储NULL，最终有效存储长度为65535个字节
+
+
+默认值
+Default：默认值，没有指定默认为NULL
+
+
+列描述
+comment：注释说明
+基本语法:comment’字段描述’；
+
+
+主键
+primary key，在一张表中，有且只有一个字段，里面的值具有唯一性
+创建方式
+1.字节在需要做主键的字段后，添加primary key属性...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >
+            
+                <span>基于Mysql的数据库复习笔记--列类型</span>
+        </a>
+        <div class="abstract-content">
+            整型
+Tinyint
+迷你整型:系统采用一个字节来保存一个字节的整型:1个字节=8位，最大能表示的数值0-255
+
+
+Smallint
+小整型:系统采用两个字节来保存的整型:0-65535
+
+
+Mediumint
+中整型:3个字节
+
+
+Int
+整型:4个字节
+
+
+BigInt
+
+大整型:8个字节
+
+
+tinyint插入255报错原因
+
+Mysql默认为整型加入负数。实际表示的区间为-128-127
+
+
+无符号标识设定
+无符号:表示存储的数据在当前字段中，没有负数（只有正数，区间为0-255）
+基本语法:在类型之后加上 unsigned
+
+
+显示长度
+指数据（整型）在数据显示的时候，可以显...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >
             
                 <span>基于Mysql的数据库复习笔记--数据基础操作</span>
@@ -1120,9 +1275,56 @@ More...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 28
         </div>
         <!-- search  -->
         
@@ -1138,52 +1340,17 @@ More...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >基于Mysql的数据库复习笔记--视图基本操作</a>
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-栈/" >基于java的数据结构复习--栈</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >基于Mysql的数据库复习笔记--事务安全</a>
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-队列/" >基于java的数据结构复习--队列</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >基于Mysql的数据库复习笔记--流程结构案例</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >基于Mysql的数据库复习笔记--存储过程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-数组/" >基于java的数据结构复习--数组</a>
         </li>
     
     
@@ -1193,7 +1360,57 @@ More...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >基于Mysql的数据库复习笔记--视图基本操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >基于Mysql的数据库复习笔记--流程结构案例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >基于Mysql的数据库复习笔记--事务安全</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >基于Mysql的数据库复习笔记--存储过程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
         </li>
     
     
@@ -1208,42 +1425,7 @@ More...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >基于Mysql的数据库复习笔记--数据基础操作</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >基于Mysql的数据库复习笔记--数据库的基本操作</a>
         </li>
     
     
@@ -1271,6 +1453,41 @@ More...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >基于Mysql的数据库复习笔记--数据基础操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >基于Mysql的数据库复习笔记--数据库的基本操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >基于Mysql的数据库复习笔记--表操作</a>
         </li>
     
@@ -1287,6 +1504,10 @@ More...
         <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
     
         <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
