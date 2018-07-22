@@ -354,6 +354,98 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >
+            
+                <span>基于Mysql的数据库复习笔记--流程结构</span>
+        </a>
+        <div class="abstract-content">
+            流程结构
+流程结构:代码的执行顺序
+
+if分支
+基本语法
+用在select查询中，当做一种条件爱你进行判断
+基本语法:if(条件,为真结果,为假结果)
+select *,if(stu_age &gt; 20,’符合’,’不符合’) as judge from my_student[ where stu_age &gt; 20];
+
+
+用在复杂的语句块中(函数/存储过程/触发器)
+基本语法:if 条件表达式 then满足条件要执行的语句;end if;
+
+
+
+
+符合语法
+代码的判断存在两面性，两面都有对应的代码执行
+基本语法:if 条件表达式 then满足条件执行的语句;else  不满足...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >
+            
+                <span>基于Mysql的数据库复习笔记--变量</span>
+        </a>
+        <div class="abstract-content">
+            变量
+Mysql本质是一种编程语言，需要很多变量来保存数据。Mysql中很多的属性控制都是通过mysql中固有的变量实现的
+系统变量
+系统内部定义的变量，系统变量针对所有用户(Mysql客户端)有效
+查看系统所有变量:show variables [like ‘pattern’];
+Mysql允许用户使用select查询变量的数据值(系统变量):select @@变量名;
+修改系统变量:分为两种修改方式
+局部修改(会话级别):只针对当前自己客户端当次连接有效
+基本语法:set 变量名 = 新值;
+
+
+全局修改:针对所有客户端，”所有时刻”都有效
+基本语法:set global 变量名 =...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >
             
                 <span>基于Mysql的数据库复习笔记--事务安全</span>
@@ -676,98 +768,6 @@ From子查询：子查询出现的位置在from数据源中（做数据源）
 Select 语句 Union[union 选项] Select 语句;
 Union选项：与select选项基本一样
 Dis...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >
-            
-                <span>基于Mysql的数据库复习笔记--查询中的运算符</span>
-        </a>
-        <div class="abstract-content">
-            算术运算符
-+,-,*,/,%
-通常不在条件中使用，而是用于结果运算
-mysql中出发的运算结果使用浮点数表示
-除法中除数如果为0，系统会给NULL
-NULL进行任何算术运算结果都为NULL
-
-比较运算符
->,&gt;=,&lt;,&lt;=,=&lt;&gt;（不等于）
-用来在条件中进行限定结果
-=：在mysql中没有对应的==比较符号，就是使用=来进行相等判断
-&lt;=&gt;：相等比较
-特殊应用：在字段结果中进行比较运算
-在条件判断的时候，还有对应的比较运算符:计算区间
-between 条件1 and 条件2  （是闭区间查找）
-between中条件1必须小于条件2
-
-
-
-逻辑运...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--高级数据操作</span>
-        </a>
-        <div class="abstract-content">
-            新增数据
-多数据插入
-只要写一次insert指令，但是可以直接插入多条记录
-基本语法:insert  into 表名 [(字段列表)] values (值列表),(值列表)…;
-insert into my_table values(‘张三’),(‘李四’),(‘王五’)…;
-
-
-主键冲突
-在有的表中，使用的是业务主键（字段含有业务意义），但是往往在进行数据插入的时候，又不确定数据表中是否已经存在对应的主键。
-解决方案
-主键冲突更新:类似插入数据语法，如果插入数据过程主键冲突，采用更新方法
-insert into 表名 [(字段列表)] values (值列表) on duplicate...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1407,9 +1407,59 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 28
+        Total : 30
         </div>
         <!-- search  -->
         
@@ -1425,7 +1475,12 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-栈/" >基于java的数据结构复习--栈</a>
+            <span class="archive-post-date">07/22</span><a class="archive-post-title" href= "/2018/07/22/基于java的数据结构复习-链表与递归/" >基于java的数据结构复习-链表与递归</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/22</span><a class="archive-post-title" href= "/2018/07/22/基于java的数据结构复习-链表/" >基于java的数据结构复习-链表</a>
         </li>
     
     
@@ -1435,17 +1490,12 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-栈/" >基于java的数据结构复习--栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-数组/" >基于java的数据结构复习--数组</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >基于Mysql的数据库复习笔记--变量作用域</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >基于Mysql的数据库复习笔记--视图基本操作</a>
         </li>
     
     
@@ -1455,7 +1505,7 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >基于Mysql的数据库复习笔记--事务安全</a>
         </li>
     
     
@@ -1465,22 +1515,7 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >基于Mysql的数据库复习笔记--事务安全</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
         </li>
     
     
@@ -1490,17 +1525,37 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >基于Mysql的数据库复习笔记--变量作用域</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >基于Mysql的数据库复习笔记--视图基本操作</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >基于Mysql的数据库复习笔记--连接查询</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
         </li>
     
     
@@ -1510,7 +1565,22 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >基于Mysql的数据库复习笔记--连接查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
         </li>
     
     
@@ -1538,12 +1608,12 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
         </li>
     
     
@@ -1553,12 +1623,7 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >基于Mysql的数据库复习笔记--表操作</a>
         </li>
     
     
@@ -1569,11 +1634,6 @@ insert into 表名 [(字段列表)] values (值列表) on duplicate...
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >基于Mysql的数据库复习笔记--数据库的基本操作</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >基于Mysql的数据库复习笔记--表操作</a>
         </li>
     
     
