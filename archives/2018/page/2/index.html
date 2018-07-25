@@ -339,6 +339,108 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >
+            
+                <span>基于Mysql的数据库复习笔记--流程结构案例</span>
+        </a>
+        <div class="abstract-content">
+            流程结构案例
+需求:从1开始，直到用户传入的对应的值为止，自动求和，凡是5的倍数都不要
+设计
+创建函数
+形参:确定要累加到什么位置
+需要定义一个变量来保存对应的结果
+set @变量名;
+使用局部变量来操作，此结果是在函数内部使用
+Declare 变量名 类型 [= 默认值]
+
+
+内部需要一个循环来实现迭代累加
+循环内部需要进行条件控制:5的倍数
+函数必须有返回值
+
+
+调用函数:select 函数名(实参);
+具体代码
+
+
+-- 自动求和函数
+
+-- 修改语句结束符
+delimiter $$
+-- 创建函数
+create function my_sum(end_value int) ret...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >
+            
+                <span>基于Mysql的数据库复习笔记--函数</span>
+        </a>
+        <div class="abstract-content">
+            函数
+在mysq中，函数分为两类:系统函数(内置函数)和自定义函数
+不管是内置函数还是用户自定义函数，都是使用 select 函数名(参数列表);
+
+内置函数字符串函数
+char length():判断字符串的字符数
+Length():判断字符串的字节数(与字符集)
+Concat():连接字符串
+Instr():判断字符在目标字符串是否存在，存在返回其位置，不存在返回0
+Lcase():全部小写
+Left():从左侧开始截取字符串到指定位置
+Ltrim():消除左边对应的空格
+Mid():从中间指定位置开始截取，如果不指定截取长度，直接到最后
+
+时间函数
+Now():返回当前时间,日期时...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >
             
                 <span>基于Mysql的数据库复习笔记--流程结构</span>
@@ -684,98 +786,10 @@ From子查询：子查询出现的位置在from数据源中（做数据源）
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--连接查询</span>
-        </a>
-        <div class="abstract-content">
-            连接查询
-将多张表连到一起进行查询（会导致记录数行和字段数列发生改变）
-意义：在关系型数据库设计过程中，实体（表）与实体之间存在很多联系。在关系型数据库表的设计过程中，遵循这关系来设计：一对一，一对多，多对多，通常在实际的操作中需要利用这层关系保证数据的完整性。
-分类
-交叉连接
-将两张表的数据与另外一张表彼此交叉
-原理：从第一张表依次取出每一条记录；取出每一条记录后，与另外一张表的全部记录挨个匹配；没有任何匹配条件，所有的结果都会进行保留；
-记录数 = 第一张表记录数*第二张表记录数=第一张表字段数+第二张表字段数；
-基本语法：表1 cross join 表2；
-应用：交叉连接产生的结果...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >
-            
-                <span>基于Mysql的数据库复习笔记--联合查询</span>
-        </a>
-        <div class="abstract-content">
-            
-基本概念
-合并多个相似的结果集。等同于将一个表追加到另一个表，从而实现将两个表的查询组合到一起，使用谓词为UNION或UNION ALL。
-联合查询：将多个查询的结果合并在一起（纵向合并）：字段数不变，多个查询的记录数合并。
-
-
-应用场景
-将同一张表中不同的结果（需要多条查询语句实现），合并到一起暂时数据
-男生身高升序排序，女生降序
-
-
-最常见：在数据量大的情况下，会对表进行分表操作，需要对每张表进行部分数据统计，使用联合查询来将数据存放在一起显示
-
-
-基本语法
-Select 语句 Union[union 选项] Select 语句;
-Union选项：与select选项基本一样
-Dis...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2018/">&#60; PREV</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/3/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/2018/">&#60; PREV</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="page-number" href="/archives/2018/page/4/">4</a><a class="extend next" rel="next" href="/archives/2018/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1316,9 +1330,45 @@ Dis...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1334,6 +1384,16 @@ Dis...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2018/07/25/基于java的数据结构复习-二分搜索树/" >基于java的数据结构复习-二分搜索树</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2018/07/25/基于java的数据结构复习-集合与映射/" >基于java的数据结构复习-集合与映射</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/22</span><a class="archive-post-title" href= "/2018/07/22/基于java的数据结构复习-链表与递归/" >基于java的数据结构复习-链表与递归</a>
         </li>
     
@@ -1344,7 +1404,7 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-数组/" >基于java的数据结构复习--数组</a>
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-栈/" >基于java的数据结构复习--栈</a>
         </li>
     
     
@@ -1354,7 +1414,7 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-栈/" >基于java的数据结构复习--栈</a>
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-数组/" >基于java的数据结构复习--数组</a>
         </li>
     
     
@@ -1364,27 +1424,12 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >基于Mysql的数据库复习笔记--存储过程</a>
         </li>
     
     
@@ -1394,7 +1439,17 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >基于Mysql的数据库复习笔记--变量作用域</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
         </li>
     
     
@@ -1404,7 +1459,12 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >基于Mysql的数据库复习笔记--变量作用域</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
         </li>
     
     
@@ -1414,7 +1474,7 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >基于Mysql的数据库复习笔记--存储过程</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
         </li>
     
     
@@ -1429,12 +1489,7 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
         </li>
     
     
@@ -1467,7 +1522,7 @@ Dis...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
         </li>
     
     
@@ -1478,6 +1533,11 @@ Dis...
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
         </li>
     
     
