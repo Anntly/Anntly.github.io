@@ -194,10 +194,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -215,34 +213,21 @@
 
 
 
-height:50vh;
-
 >
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Anntly's Blog.
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                do better yourself
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -347,6 +332,84 @@ height:50vh;
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
             <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >
+            
+                <span>基于Mysql的数据库复习笔记--用户权限管理</span>
+        </a>
+        <div class="abstract-content">
+            用户权限管理
+用户权限管理:在不同的项目中给不同的角色(开发者)不同的操作权限，为了保证数据库数据安全
+通常，一个用户的密码不会长期不变，所以需要经常性的变更数据库密码来确保用户本身安全(mysql客户端用户)
+用户管理
+mysql需要客户端进行连接认证才能进行服务器操作:需要用户信息。mysql中所有的用户信息都是保存在mysql数据库下的user表中。
+
+默认的，在安装mysql的时候，如果不选择创建匿名用户，那么意味着所有的用户只有一个:root超级用户
+在mysql中，对应的用户管理中，是由对应的Host和User共同组成主键来区分用户。
+User:代表用户的用户名
+Host:代...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >
+            
+                <span>基于Mysql的数据库复习笔记--数据库备份与还原</span>
+        </a>
+        <div class="abstract-content">
+            整库数据备份与还原
+整库数据备份也叫SQL数据备份:备份结果是SQL指令
+在Mysql中提供了一个专门用于备份的客户端:mysqldump.exe
+SQL备份不只是备份数据，还备份对应的SQL指令(表结构):即使数据库遭到毁灭性的破坏（数据库被删）。那么利用SQl备份依然可以实现数据还原
+SQL备份需要备份结构，因此产生的备份文件特别大，因此不适合特大型数据备份，也不适合数据变换频繁型数据库备份
+SQL备份
+SQl备份用到的是专门的备份客户端，因此还没与数据库服务器进行连接
+基本语法:mysqldump/mysqldump.exe -hPup 数据库名字 [表1 [表2…]] &gt; ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     
     
@@ -734,202 +797,14 @@ Mysql默认为整型加入负数。实际表示的区间为-128-127
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--数据基础操作</span>
-        </a>
-        <div class="abstract-content">
-            插入操作
-本质含义：将数据以SQL的形式存储到指定的数据表（字段）里面
-基本语法：Insert into 表名[(字段列表)] values （对应的值）
-insert into teacher (name,age) values(‘jack’,28);
-
-
-基本语法：向表中所有字段插入数据
-Insert into 表名 values(对应表结构)  //值列表必须与字段列表一致
-insert into teacher values(‘Lee’,30);
-
-
-
-查询操作
-查询表中全部数据: select * from 表名;
-查询表中部分字段:select 字段列表 from 表名;(字...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/18/基于Mysql的数据库复习笔记-表操作/" >
-            
-                <span>基于Mysql的数据库复习笔记--表操作</span>
-        </a>
-        <div class="abstract-content">
-            普通创建表
-基本语法： create table 表名字 （字段名 字段类型 [字段属性]，字段名 字段类型 [字段属性]…）[表选项];
-create table clazz(name varchar(32) …);
-表必须放在对应的数据库下，有以下两种方式：
-在数据表名字前面加上数据库名字，用“.”连接即可，数据库.数据表。
-在创建是维护局表之前，先进入到某个数据库，use 数据库名字
-
-
-
-
-表选项:与数据库选项类似
-Engine:存储引擎，mysql提供的具体存储数据的方式，默认InnoDB，5.5之前为Myisam（两者的区别之后再提）
-Charset：字符集，只对当前自己表有...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/categories/数据库/">&#60; PREV</a><a class="page-number" href="/categories/数据库/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/数据库/page/3/">3</a><a class="extend next" rel="next" href="/categories/数据库/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" src= /avatar/180.jpg >
-    <div class="profile-name">Anntly</div>
-    
-    <div class="profile-signature">
-        Forget the memories, continue to be life, miss, just pass by.
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:btzhang@foxmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/Anntly" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/assets/mmqrcode1531746325572.png" />
-                </span>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer qq" title=qq>
-                  
-                  <img class="profile-qr" src="/assets/qrcode_1531746292934.jpg" />
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
-            
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //www.baidu.com target="_black">friendA</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //www.google.com target="_black">friendB</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
