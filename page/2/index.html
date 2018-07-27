@@ -354,6 +354,52 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >
+            
+                <span>基于Mysql的数据库复习笔记--存储过程</span>
+        </a>
+        <div class="abstract-content">
+            存储过程
+存储过程简称为过程
+存储过程(Stored procedure)是在大型数据库系统中，一组为了完成特定功能的SQL语句集，存储在数据库中，经过第一次编译后再次调用不需要再次编译(效率比较高),用户通过指定存储过程的名字并给出参数(如果该存储过程带有参数)来执行它。存储过程是数据库的一个重要对象。(针对SQL编程而言)
+与函数的区别
+相同点:
+
+
+存储过程与函数的目的都是为了可以重复执行操作数据库的sql语句的集合
+存储过程函数都是一次编译，后续执行
+
+
+不同点
+
+
+标识符不同.函数的标识符为Function，过程为Procedure
+函数中有返回值，且必须返回，而过程没有返回值...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >
             
                 <span>基于Mysql的数据库复习笔记--变量作用域</span>
@@ -742,44 +788,6 @@ mysql需要客户端进行连接认证才能进行服务器操作:需要用户�
 在mysql中，对应的用户管理中，是由对应的Host和User共同组成主键来区分用户。
 User:代表用户的用户名
 Host:代...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >
-            
-                <span>基于Mysql的数据库复习笔记--数据库备份与还原</span>
-        </a>
-        <div class="abstract-content">
-            整库数据备份与还原
-整库数据备份也叫SQL数据备份:备份结果是SQL指令
-在Mysql中提供了一个专门用于备份的客户端:mysqldump.exe
-SQL备份不只是备份数据，还备份对应的SQL指令(表结构):即使数据库遭到毁灭性的破坏（数据库被删）。那么利用SQl备份依然可以实现数据还原
-SQL备份需要备份结构，因此产生的备份文件特别大，因此不适合特大型数据备份，也不适合数据变换频繁型数据库备份
-SQL备份
-SQl备份用到的是专门的备份客户端，因此还没与数据库服务器进行连接
-基本语法:mysqldump/mysqldump.exe -hPup 数据库名字 [表1 [表2…]] &gt; ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1534,9 +1542,14 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     
     
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 33
+        Total : 34
         </div>
         <!-- search  -->
         
@@ -1549,6 +1562,11 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/27</span><a class="archive-post-title" href= "/2018/07/27/基于java的数据结构复习-线段树/" >基于java的数据结构复习-线段树</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1597,7 +1615,7 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >基于Mysql的数据库复习笔记--连接查询</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
         </li>
     
     
@@ -1625,27 +1643,12 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >基于Mysql的数据库复习笔记--存储过程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
         </li>
     
     
@@ -1660,6 +1663,11 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >基于Mysql的数据库复习笔记--流程结构案例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
         </li>
     
@@ -1670,7 +1678,7 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >基于Mysql的数据库复习笔记--流程结构案例</a>
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
         </li>
     
     
@@ -1680,22 +1688,17 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-连接查询/" >基于Mysql的数据库复习笔记--连接查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-子查询/" >基于Mysql的数据库复习笔记--子查询</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
         </li>
     
     
@@ -1705,12 +1708,32 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >基于Mysql的数据库复习笔记--数据库的基本操作</a>
         </li>
     
     
@@ -1721,11 +1744,6 @@ SQl备份用到的是专门的备份客户端，因此还没与数据库服务�
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据基础操作/" >基于Mysql的数据库复习笔记--数据基础操作</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-数据库的基本操作/" >基于Mysql的数据库复习笔记--数据库的基本操作</a>
         </li>
     
     
@@ -1779,9 +1797,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="数据结构"><span class="iconfont-archer">&#xe60a;</span>数据结构</span>
-    
         <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构"><span class="iconfont-archer">&#xe60a;</span>数据结构</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
