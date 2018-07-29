@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>基于Mysql的数据库复习笔记--高级数据操作 · Anntly&#39;s Blog</title>
+    <title>Anntly&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,8 +70,6 @@
 
     <link rel="preload" href= /css/style.css?v=20180709 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180709 media="(max-width: 980px)">
-    
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -196,23 +194,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Anntly&#39;s Blog.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">基于Mysql的数据库复习笔记--高级数据操作</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Anntly's Blog.</a>
 </header>
@@ -226,76 +213,24 @@
 
 
 
-height:50vh;
-
 >
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            基于Mysql的数据库复习笔记--高级数据操作
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">1,410</span> / Reading time: <span class="post-count">5 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/07/18</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -396,208 +331,51 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h3 id="新增数据"><a href="#新增数据" class="headerlink" title="新增数据"></a>新增数据</h3><ul>
-<li>多数据插入<ul>
-<li>只要写一次insert指令，但是可以直接插入多条记录</li>
-<li>基本语法:insert  into 表名 [(字段列表)] values (值列表),(值列表)…;</li>
-<li>insert into my_table values(‘张三’),(‘李四’),(‘王五’)…;</li>
-</ul>
-</li>
-<li>主键冲突<ul>
-<li>在有的表中，使用的是业务主键（字段含有业务意义），但是往往在进行数据插入的时候，又不确定数据表中是否已经存在对应的主键。</li>
-<li>解决方案<ol>
-<li>主键冲突更新:类似插入数据语法，如果插入数据过程主键冲突，采用更新方法<ul>
-<li>insert into 表名 [(字段列表)] values (值列表) on duplicate key  update 字段 = 新值</li>
-</ul>
-</li>
-<li>主键冲突替换:当主键冲突之后，干掉原来的数据，重新插入数据<ul>
-<li>Replace into[(字段列表)] values (值列表);</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>蠕虫复制<ul>
-<li>一分为二，成倍的增加；从已有的数据中和获取数据，并且将获取到的数据插入到数据表中。</li>
-<li>基本语法:insert into 表名 [(字段列表)] select */字段列表 from 表；</li>
-<li>注意<ol>
-<li>蠕虫复制的通常是重复数据；可以测试表的压力，还可以通过大量数据来测试表的效率（索引）</li>
-<li>需要注意主键冲突</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><ul>
-<li>在更新数据的时候，要注意:通常一定是跟随条件</li>
-<li>如果没有条件，全表更新数据。但是可以使用 limit 来限制更新的数量<ul>
-<li>update 表名 set 字段名 = 新值 [where 判断条件] limit 数量;</li>
-</ul>
-</li>
-</ul>
-<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><ul>
-<li>删除数据的时候尽量不要全部删除，应该使用where进行判断</li>
-<li>删除数据的时候可以使用limit来限制要删除的具体数量</li>
-<li>Delete删除数据时无法重置auto_increment</li>
-<li>Truncate 表名 重置表选项中的自增长</li>
-</ul>
-<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><ul>
-<li>完整的查询指令:<font color="#F08080">Select select选项 字段列表 from 数据源</font> where 条件 group by 分组 order by 排序 limit 限制;</li>
-<li>select 选项<ul>
-<li>系统该如何对待查询得到的结果</li>
-<li>ALL:默认的，表示保存所有的记录</li>
-<li>Distinct:去重，去除重复的记录，只保留一条（所有字段都相同）</li>
-<li>字段列表:有的时候需要从多张表获取数据，在获取数据的时候可能存在不同表中有同名的字段，需要将同名的字段命名成不同命的:别名 alias<ul>
-<li>基本语法:字段名 [as] 别名</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>From数据源<ul>
-<li>单表数据:From 表名;</li>
-<li>多表数据:from 表1，表2…<ul>
-<li>结果:笛卡尔积，两张表的数据记录数相乘，字段数拼接</li>
-</ul>
-</li>
-<li>动态数据<ul>
-<li>from后面跟的数据不是一个实体表，而是从表中查询出来的二维结果表（子查询）</li>
-<li>基本语法:from (select 字段列表 from 表)as 别名;<font color="#F08080">(一定要有别名)</font></li>
-</ul>
-</li>
-<li>Where子句<ul>
-<li>从数据表中获取数据的时候，进行条件筛选</li>
-</ul>
-</li>
-<li>Group by子句<ul>
-<li>表示分组:根据指定字段进行分组，分组的目的是为了统计</li>
-<li>分组统计<ul>
-<li>基本语法:group by 字段名;</li>
-<li>group by是为了分组后进行数据统计的，如果只是想看数据结果，group by没有什么含义:group by将数组按照指定字段进行分组后，<font color="#F08080">只会保留每组第一条记录</font></li>
-<li>利用统计函数（聚合函数）:<ul>
-<li>count():统计每组中的数量，如果统计的目标是字段，那么不统计NULL字段</li>
-<li>avg():求平均值</li>
-<li>sum():求和和</li>
-<li>max():求最大值</li>
-<li>min():求最小值</li>
-<li>group_concat():为了将分组中指定的字段进行合并（拼接）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>多分组<ul>
-<li>将数据按照某个字段进行分组之后，对已经分组的数据进行再次分组</li>
-<li>基本语法:group by 字段1，字段2;//先按照字段1进行排序，之后将结果按照字段2进行分组;</li>
-</ul>
-</li>
-<li>分组排序<ul>
-<li>默认按照分组字段进行排序，默认升序</li>
-<li>基本语法:group by 字段 [asc|desc],字段 [asc|desc];</li>
-</ul>
-</li>
-<li>回溯统计<ul>
-<li>当分组进行多分组之后，往上统计的过程中，需要进行层层上报，将这种层层上报统计的过程称之为回溯统计；每一次分组向上统计的过程都会产生一次新的统计数据，而且当前数据对应的愤怒组字段为NULL;</li>
-<li>基本语法:group by 字段 [asc|desc] with rollup;</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Having子句<ul>
-<li>本质和where一样，是进行数据条件筛选</li>
-<li>Having是在group by子句之后:可以对分组数据进行统计筛选，where不行</li>
-<li>where不能使用聚合函数:聚合函数是用在group by where运行完毕</li>
-<li>Having在group by 分组之后，可以使用聚合函数或者字段别名</li>
-<li>having是在group by之后，group by是在where之后:where的时候表示将数据从磁盘拿到内存，where之之后的所有操作都是内存操作。</li>
-</ul>
-</li>
-<li>Order by子句<ul>
-<li>根据校对规则对数据进行排序</li>
-<li>基本语法：order by 字段[asc|desc]; //asc升序，默认</li>
-<li>多字段排序:order by 字段1 规则,字段2 规则…;</li>
-</ul>
-</li>
-<li>Limit 子句<ul>
-<li>主要是用来显示记录数量获取</li>
-<li>记录数限制:<ul>
-<li>纯粹的限制获取的数量</li>
-<li>基本语法:limit 数量;</li>
-<li>通常用在限定一条记录的时候</li>
-</ul>
-</li>
-<li>分页<ul>
-<li>利用limit来限制获取指定区间的数据</li>
-<li>基本语法:limit offset,length; //offset 偏移量:从哪开始 length:具体获取多少条记录</li>
-<li>Mysql中记录的数量从0开始</li>
-<li>limit 0,2;表示获取前两条数据</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者: <a href="https://anntly.github.io">Anntly</a>
-            <p>原文链接: <a href="https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/">https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/</a>
-            <p>发表日期: <a href="https://anntly.github.io/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/">July 18th 2018, 8:39:51 pm</a>
-            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/20/基于java的数据结构复习-数组/" >
+            
+                <span>基于java的数据结构复习--数组</span>
+        </a>
+        <div class="abstract-content">
+            数组基础
+数组最大的优点：快速查询
+数组最好应用于“索引有语意”的情况
+索引过大也不适合使用数组
+无序数组
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据结构">数据结构</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" title= 基于Mysql的数据库复习笔记--查询中的运算符 >
-                    <div class="nextTitle">基于Mysql的数据库复习笔记--查询中的运算符</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" title= 基于Mysql的数据库复习笔记--表关系 >
-                    <div class="prevTitle">基于Mysql的数据库复习笔记--表关系</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-    <div id="lv-container" data-id="city" data-uid= MTAyMC8zODExMy8xNDY0Mw==>
-        <script type="text/javascript">
-            (function (d, s) {
-                var j, e = d.getElementsByTagName(s)[0];
-                if (typeof LivereTower === 'function') { return; }
-                j = d.createElement(s);
-                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                j.async = true;
-
-                e.parentNode.insertBefore(j, e);
-            })(document, 'script');
-        </script>
-        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-    </div>
-
-<!-- City版安装代码已完成 -->
     
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/categories/数据结构/">&#60; PREV</a><a class="page-number" href="/categories/数据结构/">1</a><span class="page-number current">2</span>
+    </nav>
     
-    <!--PC和WAP自适应版-->
-
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -685,24 +463,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#新增数据"><span class="toc-number">1.</span> <span class="toc-text">新增数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新数据"><span class="toc-number">2.</span> <span class="toc-text">更新数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除操作"><span class="toc-number">3.</span> <span class="toc-text">删除操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询数据"><span class="toc-number">4.</span> <span class="toc-text">查询数据</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1630,8 +1390,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
