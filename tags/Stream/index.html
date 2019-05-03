@@ -194,10 +194,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -215,34 +213,21 @@
 
 
 
-height:50vh;
-
 >
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Anntly's Blog.
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                do better yourself
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -354,41 +339,28 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/20/基于java的数据结构复习-栈/" >
+        <a class="abstract-title" href = "/2019/05/03/并行流/" >
             
-                <span>基于java的数据结构复习--栈</span>
+                <span>并行流</span>
         </a>
         <div class="abstract-content">
-            栈
-栈是一种线性结构
-相比数组，栈对应的操作时数组的子集
-栈只能从一端添加元素，也只能从一端取出元素
-这一端称为栈顶
-栈是一种后进先出的数据结构（Last In First Out (LIFO)）栈的应用
-
-
-编辑器的Uodo操作(撤销)
-程序调用的系统栈
-
-栈的实现
-代码实现
-
-
-先创建一个Stack接口，包含需要用的方法，为以后链表实现做准备
-1234567891011121314151617181920212223242526272829303132public interface Stack&lt;E&gt; &#123;    /**     * 获取元素个数     * @r...
+            计算1-1000000的和可以使用forkjoin实现
+java8中使用并行流上线123456789101112@Test	public void test6() &#123;				Instant start = Instant.now();				LongStream.rangeClosed(0, 1000000L)				  .parallel()				  .reduce(0,Long::sum);		Instant end = Instant.now();				System.out.println("耗费时间为:" + Duration.between(start, end)...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/20</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/03</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据结构">数据结构</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java8">java8</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Stream">Stream</a>
     
 </div>
             
@@ -401,410 +373,38 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/20/基于java的数据结构复习-数组/" >
+        <a class="abstract-title" href = "/2019/05/03/Stream/" >
             
-                <span>基于java的数据结构复习--数组</span>
+                <span>Stream</span>
         </a>
         <div class="abstract-content">
-            数组基础
-数组最大的优点：快速查询
-数组最好应用于“索引有语意”的情况
-索引过大也不适合使用数组
-无序数组
+            什么是Stream是数据渠道，用于操作数据源(集合、数组等)所生成的元素序列。”集合讲的是数据，流讲的是计算”
 
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611...
+Stream自己不会存储数据
+Stream不会改变原对象。相反，它会返回一个持有结果的新Stream
+Stream操作是延迟执行的。这意味着它们会等到需要结果的时候才执行
+
+Stream的操作三个步骤
+创建Stream：一个数据源（如：集合、数组），获取一个流
+中间操作：一个中间操作链，对数据源的数据进行处理
+终止操作（终端操作）一个终止操作，执行中间操作链，并产生结果
+
+Stream的创建方式1:可以通过Collection系列集合提供的Stream()或parallelS...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/20</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/03</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据结构">数据结构</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java8">java8</a>
     
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >
-            
-                <span>基于Mysql的数据库复习笔记--触发器</span>
-        </a>
-        <div class="abstract-content">
-            触发器
-基本概念
-触发器是一种特殊的存储过程，它不同于之前的存储过程。触发器主要是通过事件进行触发而被执行的，而存储过程可以通过存储过程名字而被直接调用
-
-
-作用
-可以在写入数据表之前，强制检验或者转换数据(保证安全)
-触发器发生错误的时候，异动的结果会被撤销(如果触发器执行错误，前面用户已经执行成功的操作也会被撤销:类似事务安全)
-部分数据库管理系统可以针对数据定义语言(DDL)使用触发器，称为DDL触发器
-可依照特定的情况，替换异动的指令(INSTRAD OF)（mysql不支持）
-
-
-优点
-
-
-触发器可通过数据库中的相关表实现级联操作(如果某张表的数据改变,可以利用触发器来实现其他...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-存储过程/" >
-            
-                <span>基于Mysql的数据库复习笔记--存储过程</span>
-        </a>
-        <div class="abstract-content">
-            存储过程
-存储过程简称为过程
-存储过程(Stored procedure)是在大型数据库系统中，一组为了完成特定功能的SQL语句集，存储在数据库中，经过第一次编译后再次调用不需要再次编译(效率比较高),用户通过指定存储过程的名字并给出参数(如果该存储过程带有参数)来执行它。存储过程是数据库的一个重要对象。(针对SQL编程而言)
-与函数的区别
-相同点:
-
-
-存储过程与函数的目的都是为了可以重复执行操作数据库的sql语句的集合
-存储过程函数都是一次编译，后续执行
-
-
-不同点
-
-
-标识符不同.函数的标识符为Function，过程为Procedure
-函数中有返回值，且必须返回，而过程没有返回值...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-变量作用域/" >
-            
-                <span>基于Mysql的数据库复习笔记--变量作用域</span>
-        </a>
-        <div class="abstract-content">
-            变量作用域
-变量能够使用的区域范围
-局部作用域
-使用declare关键字声明(在结构体内:函数/存储过程/触发器)而且只能在结构体内部使用
-
-
-decalre关键字声明的变量没有任何符号修饰，就是普通字符串，如果在外部访问该变量，系统会自动认为是字段
-
-
-会话作用域
-用户定义的，使用@符号定义的变量,使用set关键字
-会话作用域:当前用户当次连接有效，只要在本连接中，任何地方都可以使用(可以再结构内部,也可以跨库)
-
-
-全局作用域
-所有的客户端所有的连接都有效:需要使用全局符号来定义
-set global 变量名 = 值;
-set @@global.变量名 = 值;
-通常在SQL编程的时...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >
-            
-                <span>基于Mysql的数据库复习笔记--流程结构案例</span>
-        </a>
-        <div class="abstract-content">
-            流程结构案例
-需求:从1开始，直到用户传入的对应的值为止，自动求和，凡是5的倍数都不要
-设计
-创建函数
-形参:确定要累加到什么位置
-需要定义一个变量来保存对应的结果
-set @变量名;
-使用局部变量来操作，此结果是在函数内部使用
-Declare 变量名 类型 [= 默认值]
-
-
-内部需要一个循环来实现迭代累加
-循环内部需要进行条件控制:5的倍数
-函数必须有返回值
-
-
-调用函数:select 函数名(实参);
-具体代码
-
-
--- 自动求和函数
-
--- 修改语句结束符
-delimiter $$
--- 创建函数
-create function my_sum(end_value int) ret...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >
-            
-                <span>基于Mysql的数据库复习笔记--函数</span>
-        </a>
-        <div class="abstract-content">
-            函数
-在mysq中，函数分为两类:系统函数(内置函数)和自定义函数
-不管是内置函数还是用户自定义函数，都是使用 select 函数名(参数列表);
-
-内置函数字符串函数
-char length():判断字符串的字符数
-Length():判断字符串的字节数(与字符集)
-Concat():连接字符串
-Instr():判断字符在目标字符串是否存在，存在返回其位置，不存在返回0
-Lcase():全部小写
-Left():从左侧开始截取字符串到指定位置
-Ltrim():消除左边对应的空格
-Mid():从中间指定位置开始截取，如果不指定截取长度，直接到最后
-
-时间函数
-Now():返回当前时间,日期时...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >
-            
-                <span>基于Mysql的数据库复习笔记--流程结构</span>
-        </a>
-        <div class="abstract-content">
-            流程结构
-流程结构:代码的执行顺序
-
-if分支
-基本语法
-用在select查询中，当做一种条件爱你进行判断
-基本语法:if(条件,为真结果,为假结果)
-select *,if(stu_age &gt; 20,’符合’,’不符合’) as judge from my_student[ where stu_age &gt; 20];
-
-
-用在复杂的语句块中(函数/存储过程/触发器)
-基本语法:if 条件表达式 then满足条件要执行的语句;end if;
-
-
-
-
-符合语法
-代码的判断存在两面性，两面都有对应的代码执行
-基本语法:if 条件表达式 then满足条件执行的语句;else  不满足...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >
-            
-                <span>基于Mysql的数据库复习笔记--变量</span>
-        </a>
-        <div class="abstract-content">
-            变量
-Mysql本质是一种编程语言，需要很多变量来保存数据。Mysql中很多的属性控制都是通过mysql中固有的变量实现的
-系统变量
-系统内部定义的变量，系统变量针对所有用户(Mysql客户端)有效
-查看系统所有变量:show variables [like ‘pattern’];
-Mysql允许用户使用select查询变量的数据值(系统变量):select @@变量名;
-修改系统变量:分为两种修改方式
-局部修改(会话级别):只针对当前自己客户端当次连接有效
-基本语法:set 变量名 = 新值;
-
-
-全局修改:针对所有客户端，”所有时刻”都有效
-基本语法:set global 变量名 =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >
-            
-                <span>基于Mysql的数据库复习笔记--事务安全</span>
-        </a>
-        <div class="abstract-content">
-            事务安全
-事务概念
-事务基本原理:mysql允许将事务统一进行管理(存储引擎Innodb)，将用户所作的操作保存起来，不直接放到数据表（更新），等用户确认结果之后在进行操作
-
-自动事务
-
-autocommit:当客户端发送一条SQL指令(写操作:增删改)给服务器的时候，服务器在执行之后，不用等待用户反馈结果，会自动将结果同步到数据表。
-系统做了额外的步骤来帮助用户操作，系统是通过变量来控制的。
-Show variables like ‘autocommit%’;
-关闭自动事务:关闭之后系统就不再帮助用户提交结果了
-Set autocommit = Off;
-
-
-一旦自动事务关闭:需要用户...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Stream">Stream</a>
     
 </div>
             
@@ -813,112 +413,8 @@ Set autocommit = Off;
     
     <!-- paginator  -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">NEXT &#62;</a>
-    </nav>
-    
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" src= /avatar/180.jpg >
-    <div class="profile-name">Anntly</div>
-    
-    <div class="profile-signature">
-        Forget the memories, continue to be life, miss, just pass by.
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:btzhang@foxmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/Anntly" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/assets/mmqrcode1531746325572.png" />
-                </span>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer qq" title=qq>
-                  
-                  <img class="profile-qr" src="/assets/qrcode_1531746292934.jpg" />
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
-            
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //www.baidu.com target="_black">friendA</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //www.google.com target="_black">friendB</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">

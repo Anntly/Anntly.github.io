@@ -339,6 +339,84 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/03/并行流/" >
+            
+                <span>并行流</span>
+        </a>
+        <div class="abstract-content">
+            计算1-1000000的和可以使用forkjoin实现
+java8中使用并行流上线123456789101112@Test	public void test6() &#123;				Instant start = Instant.now();				LongStream.rangeClosed(0, 1000000L)				  .parallel()				  .reduce(0,Long::sum);		Instant end = Instant.now();				System.out.println("耗费时间为:" + Duration.between(start, end)...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java8">java8</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Stream">Stream</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/03/Stream/" >
+            
+                <span>Stream</span>
+        </a>
+        <div class="abstract-content">
+            什么是Stream是数据渠道，用于操作数据源(集合、数组等)所生成的元素序列。”集合讲的是数据，流讲的是计算”
+
+Stream自己不会存储数据
+Stream不会改变原对象。相反，它会返回一个持有结果的新Stream
+Stream操作是延迟执行的。这意味着它们会等到需要结果的时候才执行
+
+Stream的操作三个步骤
+创建Stream：一个数据源（如：集合、数组），获取一个流
+中间操作：一个中间操作链，对数据源的数据进行处理
+终止操作（终端操作）一个终止操作，执行中间操作链，并产生结果
+
+Stream的创建方式1:可以通过Collection系列集合提供的Stream()或parallelS...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java8">java8</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Stream">Stream</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/05/01/方法引用与构造器引用/" >
             
                 <span>方法引用与构造器引用</span>
@@ -616,75 +694,6 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
 重复销售？超量销售？
 
 使用ArrayList12345678910111213141516171819202122import java.util.ArrayList;import java.util.List;public class TicketSeller1 &#123;	static List&lt;String&gt; tickets = new ArrayList&lt;&gt;();		static &#123;		for(int i=0; i&lt;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "多线程">多线程</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "高并发">高并发</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/04/29/单例模式/" >
-            
-                <span>单例模式</span>
-        </a>
-        <div class="abstract-content">
-            痴汉模式1234567891011public class Singleton01 &#123;    private static final Singleton01 singleton = new Singleton01();    private Singleton01() &#123;&#125;    public static Singleton01 getInstance()&#123;        return singleton;    &#125;&#125;
-懒汉模式(单线程)1234567891011121314public class Singleton02 ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "多线程">多线程</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "高并发">高并发</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/04/29/ThreadLocal/" >
-            
-                <span>ThreadLocal</span>
-        </a>
-        <div class="abstract-content">
-            ThreadLocal又叫做==线程本地变量==，ThreadLocal为变量在每个线程中都创建了一个副本，每个线程都可以访问自己内部的副本变量
-详见 https://www.cnblogs.com/coshaho/p/5127135.html
-不使用ThreadLocal12345678910111213141516171819202122232425262728293031import java.util.concurrent.TimeUnit;public class ThreadLocal1 &#123;	volatile static Person p = new Person...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1679,63 +1688,9 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 55
+        Total : 57
         </div>
         <!-- search  -->
         
@@ -1748,6 +1703,16 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2019/05/03/并行流/" >并行流</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2019/05/03/Stream/" >Stream</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1776,12 +1741,12 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/线程池/" >线程池</a>
+            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/并发容器/" >并发容器</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/并发容器/" >并发容器</a>
+            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/线程池/" >线程池</a>
         </li>
     
     
@@ -1791,12 +1756,12 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/单例模式/" >单例模式</a>
+            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/ThreadLocal/" >ThreadLocal</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/ThreadLocal/" >ThreadLocal</a>
+            <span class="archive-post-date">04/29</span><a class="archive-post-title" href= "/2019/04/29/单例模式/" >单例模式</a>
         </li>
     
     
@@ -1875,12 +1840,12 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2018/07/25/基于java的数据结构复习-集合与映射/" >基于java的数据结构复习-集合与映射</a>
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2018/07/25/基于java的数据结构复习-二分搜索树/" >基于java的数据结构复习-二分搜索树</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2018/07/25/基于java的数据结构复习-二分搜索树/" >基于java的数据结构复习-二分搜索树</a>
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2018/07/25/基于java的数据结构复习-集合与映射/" >基于java的数据结构复习-集合与映射</a>
         </li>
     
     
@@ -1895,7 +1860,7 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-数组/" >基于java的数据结构复习--数组</a>
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-队列/" >基于java的数据结构复习--队列</a>
         </li>
     
     
@@ -1905,52 +1870,12 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-队列/" >基于java的数据结构复习--队列</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >基于Mysql的数据库复习笔记--视图基本操作</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >基于Mysql的数据库复习笔记--事务安全</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >基于Mysql的数据库复习笔记--流程结构案例</a>
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2018/07/20/基于java的数据结构复习-数组/" >基于java的数据结构复习--数组</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-触发器/" >基于Mysql的数据库复习笔记--触发器</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
         </li>
     
     
@@ -1965,7 +1890,47 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-变量/" >基于Mysql的数据库复习笔记--变量</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-事务安全/" >基于Mysql的数据库复习笔记--事务安全</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-视图基本操作/" >基于Mysql的数据库复习笔记--视图基本操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-函数/" >基于Mysql的数据库复习笔记--函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-用户权限管理/" >基于Mysql的数据库复习笔记--用户权限管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构/" >基于Mysql的数据库复习笔记--流程结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-流程结构案例/" >基于Mysql的数据库复习笔记--流程结构案例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-外键/" >基于Mysql的数据库复习笔记--外键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2018/07/19/基于Mysql的数据库复习笔记-数据库备份与还原/" >基于Mysql的数据库复习笔记--数据库备份与还原</a>
         </li>
     
     
@@ -1980,17 +1945,12 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-高级数据操作/" >基于Mysql的数据库复习笔记--高级数据操作</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
         </li>
     
     
@@ -2018,17 +1978,22 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列类型/" >基于Mysql的数据库复习笔记--列类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-联合查询/" >基于Mysql的数据库复习笔记--联合查询</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-列属性/" >基于Mysql的数据库复习笔记--列属性</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-查询中的运算符/" >基于Mysql的数据库复习笔记--查询中的运算符</a>
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2018/07/18/基于Mysql的数据库复习笔记-表关系/" >基于Mysql的数据库复习笔记--表关系</a>
         </li>
     
     
@@ -2073,6 +2038,8 @@ ExecutorService12345678910111213141516171819202122public interface ExecutorServi
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="Stream"><span class="iconfont-archer">&#xe606;</span>Stream</span>
     
         <span class="sidebar-tag-name" data-tags="IO"><span class="iconfont-archer">&#xe606;</span>IO</span>
     
